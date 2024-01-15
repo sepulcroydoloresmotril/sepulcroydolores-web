@@ -1,0 +1,204 @@
+---
+import Logo from "../../../components/Logo.astro";
+import Speaker from "../../../components/Speaker.astro";
+import Layout from "../../../layouts/Layout.astro";
+
+const SPEAKERS = [
+	{
+		name: "Dr. David Martín López",
+		title: "Profesor de Historia de la Universidad de Granada",
+		img: "david",
+		alt: "David",
+        description: ["David es profesor de historia de la universidad de Granada. Especialista en historia de la religiosidad popular y de las cofradías. Además, es un gran conocedor de la historia de la ciudad de Motril y de su patrimonio histórico-artístico."],
+	},
+	{
+		name: "Rdo. D. José Gabriel Martín Rodríguez",
+		title: "Delegado episcopal de cofradías de Granada",
+		img: "jose_gabriel",
+		alt: "Jose Gabriel",
+		descrition: [
+			"José Gabriel es actualmente el delegado diocesano para hermandades y cofradías. Íntimamente vinculado a la semana santa granadina donde ejerce de consiliario de la real federación y de diferentes entes procesionales.",
+			"Igualmente, fue un pionero en el desarrollo diocesano de la pastoral de la salud. Además, su vida pastoral comenzó en nuestra ciudad pues fue ordenado sacerdote mientras era diácono en la parroquia de la Divina Pastora.",
+		],
+	},
+	{
+		name: "D. Domingo López Fernández",
+		img: "domingo",
+		alt: "Domingo",
+		title: "Historiador y periodista motrileño",
+        description: ["Domingo es un gran conocedor de la historia de nuestra ciudad. Además, es un gran divulgador de la historia de la semana santa motrileña y de su patrimonio histórico-artístico. Es autor de numerosos artículos y libros sobre la historia de Motril."],
+	},
+];
+---
+
+<Layout
+	title="Ciclo de Conferencias 2024 - Cofradía del Santo Sepulcro y Ntra. Sra. de los Dolores (Motril)"
+	description="Ciclo de conferencias organizado por la Cofradía del Santo Sepulcro y Ntra. Sra. de los Dolores con motivo del 75 aniversario de la hechura de Ntro. Padre Jesús en su Santo Sepulcro"
+	keywords="Ciclo de Conferencias Cofradía del Santo Sepulcro y Nuestra Señora de los Dolores Motril Granada España"
+	path="/eventos/ciclo-conferencias"
+	image="/img/og-image-conferencias.jpg"
+>
+	<main class="relative">
+		<section
+			id="hero"
+			class="relative z-10 h-screen flex flex-col justify-center items-center gap-10"
+		>
+			<picture>
+				<source srcset="/img/slide1.webp" type="image/webp" />
+				<img
+					src="/img/slide1.webp"
+					alt="Fotografía antigua de Nuestro Padre Jesús en su Santo Sepulcro"
+					class="absolute inset-0 w-full h-full object-cover object-left-top opacity-35 -z-10"
+				/>
+			</picture>
+			<div class="max-w-7xl mx-auto">
+				<h1
+					class="mx-auto my-0 px-6 sm:px-20 sm:py-6 sm:mt-10 md:py-7 text-5xl sm:text-7xl font-bold text-[var(--color-red)] text-center font-roman"
+				>
+					Ciclo de Conferencias
+				</h1>
+				<h3
+					class="text-lg sm:text-2xl max-w-[80ch] text-center text-[var(--color-light)] font-roman"
+				>
+					LXXV Aniversario de la hechura de<br />Nuestro Padre Jesús en su Santo
+					Sepulcro
+				</h3>
+			</div>
+			<Logo class="w-56" />
+		</section>
+
+		<section id="explain" class="max-w-7xl mx-auto my-24 mt-12 px-6">
+			<h2
+				class="text-lg sm:text-5xl text-center text-[var(--color-red)] font-roman py-12"
+			>
+				Motivación
+			</h2>
+			<div class="max-w[70ch] text-xl text-sky-200 [text-wrap:balance] mt-4 flex flex-row gap-6">
+                <picture>
+                    <source srcset="/img/cristo_yacente_cara.jpg" type="image/webp" />
+                    <img
+                        src="/img/cristo_yacente_cara.jpg"
+                        alt="Nuestro Padre Jesús en su Santo Sepulcro"
+                        class="mx-auto w-full h-auto"
+                    />
+
+                </picture>
+                <div class="flex flex-col gap-6">                    
+                    <p class="leading-7">
+                        El pasado mes de marzo, nuestra cofradía del Santo Sepulcro y Nuestra
+                        Señora de los Dolores celebraba con gozo el inicio del 75 aniversario
+                        de la realización de la talla del Cristo Yacente por Domingo Sánchez
+                        Mesa, lo que suponía la revitalización de la semana santa motrileña
+                        tras la contienda civil española y el inicio de nuevo de la
+                        celebración de las procesiones penitenciales.
+                    </p>
+                    <p class="myleading-7">
+                        Con tal motivo, al final de esta importante efeméride, nuestra
+                        cofradía organiza tres sesiones de formación cofrade sobre diferentes
+                        temáticas relacionadas con la religiosidad popular, el arte y la
+                        historia.
+                    </p>
+                    <p class="leading-7">
+                        Es por ello, que le invitamos a estas interesantes charlas en donde se
+                        unen e interconectan las diferentes facetas y aspectos de la vida de
+                        la cofradía y del resto de hermandades de nuestra ciudad. De este
+                        modo, podremos profundizar en la importancia evangelizadora de nuestra
+                        corporación, en la contribución de las cofradías del Santo Entierro a
+                        la historia del arte y en el papel de nuestra hermandad en el contexto
+                        histórico-artístico de Motril.
+                    </p>
+                </div>
+			</div>
+		</section>
+		<section id="speakers" class="max-w-7xl mx-auto my-24 mt-12">
+			<h2
+				class="text-lg sm:text-5xl text-center text-[var(--color-red)] font-roman py-12"
+			>
+				Ponentes
+			</h2>
+			<p
+				class="max-w-xl mx-auto text-xl text-sky-200 text-center [text-wrap:balance] mt-4"
+			>
+				Personas relevantes y profesionales en la religiosidad popular, el arte
+				y la historia
+			</p>
+			<div
+				class="grid grid-cols-1 my-16 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8"
+			>
+				{
+					SPEAKERS.map((speaker, id) => (
+						<Speaker key={`spk-${id}`} {...speaker} id={id} />
+					))
+				}
+			</div>
+		</section>
+		<section id="conferences" class="max-w-7xl mx-auto my-24">
+			<h2
+				class="text-lg sm:text-5xl text-center text-[var(--color-red)] font-roman py-12"
+			>
+				Charlas
+			</h2>
+		</section>
+
+		<section id="Location" class="max-w-7xl mx-auto my-24">
+			<h2
+				class="text-lg sm:text-5xl text-center text-[var(--color-red)] font-roman py-12"
+			>
+				Localización
+			</h2>
+		</section>
+
+		<section id="acknowledgements" class="max-w-7xl mx-auto my-24">
+			<h2
+				class="text-lg sm:text-5xl text-center text-[var(--color-red)] font-roman mb-12"
+			>
+				Agradecimientos
+			</h2>
+			<div class="flex flex-row justify-evenly gap-6 py-12">
+				<a
+					class="flex flex-col gap-3"
+					href="http://www.motril.es/index.php?id=152"
+					target="_blank"
+				>
+					<picture>
+						<source
+							srcset="/img/logos/area_cultura_motril.webp"
+							type="image/webp"
+						/>
+						<img
+							src="/img/logos/area_cultura_motril.png"
+							alt="Escudo del Area de Cultura del Ayuntamiento de Motril"
+							class="h-20 mx-auto w-auto"
+						/>
+					</picture>
+					<span class="text-center font-bold w-48"
+						>Area de cultura del Ayuntamiento de Motril</span
+					>
+				</a>
+				<a
+					class="flex flex-col gap-3"
+					href="http://www.motril.es"
+					target="_blank"
+				>
+					<picture>
+						<source srcset="/img/logos/ayto_motril.webp" type="image/webp" />
+						<img
+							src="/img/logos/ayto_motril.png"
+							alt="Escudo del Excelentisimo Ayuntamiento de Motril"
+							class="h-20 mx-auto w-auto"
+						/>
+					</picture>
+					<span class="text-center font-bold w-48"
+						>Excelentisimo Ayuntamiento de Motril</span
+					>
+				</a>
+			</div>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	/* #hero {
+        height: calc(100vh - 100px);
+    } */
+</style>

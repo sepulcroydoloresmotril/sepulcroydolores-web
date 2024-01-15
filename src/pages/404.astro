@@ -1,0 +1,33 @@
+---
+import Logo from "../components/Logo.astro";
+import Layout from "../layouts/Layout.astro";
+
+const { href } = Astro.url;
+---
+
+<Layout
+	title="404: Not found"
+	description="The page you're looking for doesn't exist."
+	image="/images/404.png"
+	keywords=""
+	footer={false}
+	header={false}
+>
+	<main class="max-w-7xl  mx-auto flex flex-col gap-5 justify-center items-center h-screen overflow-hidden">
+		<Logo class="w-36 mx-auto" />
+		<h1 class="text-5xl">
+			<span class="statusCode font-bold text-[var(--color-red)]">Error 404:</span>
+			<span class="statusMessage">Página no encontrada</span>
+		</h1>
+
+		<pre>{href}</pre>
+	</main>
+</Layout>
+
+<style>
+	pre {
+		background: #414141;
+		padding: 20px;
+		margin: 20px 0;
+	}
+</style>
