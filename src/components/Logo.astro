@@ -2,12 +2,13 @@
 const { class: astro_class = '' } = Astro.props
 ---
 
-<picture>
-    <source srcset="/img/escudo.webp" type="image/webp" />
+<!-- <picture>
+    <source srcset="/img/escudo.webp" type="image/webp" /> -->
     <img
         {...Astro.props}
         class={`max-w-full aspect-square ${astro_class}`}
+        srcset="/img/escudo.webp"
         src="/img/escudo.png"
         alt="Ciclo de Conferencias - Cofradía del Santo Sepulcro y Ntra. Sra. de los Dolores (Motril)"
     />
-</picture>
+<!-- </picture> -->

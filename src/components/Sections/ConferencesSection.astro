@@ -1,8 +1,27 @@
 ---
+import CardHorizontal from "../Conference.astro";
 import SectionTitle from "../SectionTitle.astro";
+import CONFERENCES from '../../constants/conferences';
 
 ---
 
-<section id="conferences" class="max-w-7xl mx-auto my-24">
-    <SectionTitle>Charlas</SectionTitle>
+<section id="conferences" class="max-w-7xl mx-auto my-24 px-6 [1025px]:px-0">
+    <SectionTitle>Ponencias</SectionTitle>
+    <p class="max-w-xl mx-auto text-xl text-slate-100 text-center text-pretty mt-0">Estas son algunas de las ponencias que he dado en diferentes eventos</p>
+    <div class="flex flex-col items-center justify-center my-12 gap-y-6">
+    {
+        CONFERENCES.map((conference, index: any) => (
+            <CardHorizontal
+                key={index}
+                title={conference.title}
+                description={conference.description}
+                image={conference.image}
+                date={conference.date}
+                time={conference.time}
+                author={conference.speaker}
+                author_img={conference.speaker_img}
+            />
+        ))
+    }
+    </div>
 </section>

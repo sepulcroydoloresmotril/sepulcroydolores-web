@@ -1,0 +1,73 @@
+---
+import IconCalendar from "./icons/IconCalendar.astro"
+import IconClock from "./icons/IconClock.astro"
+import IconMap from "./icons/IconMap.astro"
+
+const {title, description, author, author_img, date, time, image, key} = Astro.props
+
+
+---
+
+
+<article class='relative grid grid-cols-4 items-center justify-center w-full p-[1px] transition-all rounded-md  group hover:scale-105'>
+    <div 
+        id="card-image"
+        class="conference-bg col-span-1 h-full w-full bg-slate-500" 
+        data-style={`background-image: url('/img/conferences/${image?.name}.jpg');`}
+    >
+    </div>
+    <div id="card-content" class='bg-[#000214]/50 flex-1 group-hover:bg-[#cf1f21]/40  px-6 py-6 rounded transition col-span-3 bg-gradient-to-r from-white/20 via-transparent to-transparent hover:via-white/10'>
+       
+        <header  id="card-title"
+            class="mb-5 flex flex-row items-start gap-2"
+        >
+            <h3 class="text-3xl font-bold text-left text-[var(--color-red)] font-roman group-hover:text-[var(--color-light)]">{title}</h3>    
+            <figure  class=' min-w-16'>
+                    
+                <picture>
+                    <source srcset={`/img/speakers/${author_img}.webp`} type="image/webp" />
+                    <img class="object-cover object-top w-14 h-14 rounded-full" src={`/img/speakers/${author_img}.jpg`} alt={author} title={author}>
+                </picture>
+            </figure>
+                
+        </header>
+        <div id="card-body" class="w-full flex flex-col gap-y-6">
+            {description.map((paragraph:string, index:any) => (
+                <p class='text-xl text-left max-w-[70ch] text-pretty text-slate-100 '>{paragraph}</p>
+            ))}
+        </div>
+        <footer id="card-footer" class="flex flex-row items-center justify-between mt-5 gap-6">
+            <div class="flex flex-row items-center gap-2">
+                <IconCalendar size="32" class="w-6 h-6 text-[var(--color-light)]"/>
+                <span class="text-xl text-left text-[var(--color-light)]">{date}</span>
+            </div>
+            <div class="flex flex-row items-center gap-2">
+                <IconClock size="32" class="w-6 h-6 text-[var(--color-light)]"/>
+                <span class="text-xl text-left text-[var(--color-light)]">{time}</span>
+            </div>
+            <div class="flex flex-row items-center gap-2">
+                <IconMap size="32" class="w-6 h-6 text-[var(--color-light)]"/>
+                <a class="text-xl text-left text-[var(--color-light)]">Centro de Arte José Hernández Quero</a>
+            </div>
+    </div>
+</article>
+
+
+<style 
+    define:vars={{
+        "path-jpg": `url("/img/conferences/${image?.name}.jpg")`,
+        "path-webp": `url("/img/conferences/${image.name}.webp")`,
+    }}
+>
+    .conference-bg {
+        background-color: aqua !important;
+        background-image: var(--path-jpg);
+
+        /* @supports (background-image: var(--path-webp)) {
+            background-image: var(--path-webp);
+        }; */
+
+        background-size: cover;
+        background-position: center;
+    }
+</style>

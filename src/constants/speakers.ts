@@ -1,11 +1,13 @@
-
 const SPEAKERS = [
 	{
 		name: "Dr. David Martín López",
 		title: "Profesor de Historia de la Universidad de Granada",
 		img: "david",
 		alt: "David",
-        description: ["David es profesor de historia de la universidad de Granada. Especialista en historia de la religiosidad popular y de las cofradías. Además, es un gran conocedor de la historia de la ciudad de Motril y de su patrimonio histórico-artístico."],
+		description: [
+			"David Martín López es profesor del departamento de Historia del Arte de la Universidad Granada, donde destaca por sus amplios estudios sobre la importancia de la catalogación como herramienta para la protección del patrimonio artístico.",
+			"Está vinculado desde pequeño a la celebración de la Solemnidad del Corpus Christi (Santa Cruz de Tenerife) y a las diversas celebraciones que entorno a esta fiesta se realizan.",
+		],
 	},
 	{
 		name: "Rdo. D. José Gabriel Martín Rodríguez",
@@ -25,9 +27,9 @@ const SPEAKERS = [
 		title: "Historiador y periodista motrileño",
 		description: [
 			"Domingo es un incansable investigador motrileño, cuyas diferentes investigaciones han contribuido a poner en valor el patrimonio perdido de nuestra ciudad.",
-			"Su labor periodística a través del periódico el Faro, refleja con imparcialidad los diferentes acontecimientos de nuestra ciudad."
-		]
+			"Su labor periodística a través del periódico el Faro, refleja con imparcialidad los diferentes acontecimientos de nuestra ciudad.",
+		],
 	},
 ] as const;
 
-export default SPEAKERS
+export default SPEAKERS;

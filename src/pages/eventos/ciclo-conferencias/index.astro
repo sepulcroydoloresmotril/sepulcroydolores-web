@@ -1,14 +1,11 @@
 ---
-import Logo from "../../../components/Logo.astro";
-import SectionTitle from "../../../components/SectionTitle.astro";
-import AcknowledgementsSection from "../../../components/Sections/AcknowledgementsSection.astro";
-import ConferencesSection from "../../../components/Sections/ConferencesSection.astro";
-import ExplainSection from "../../../components/Sections/ExplainSection.astro";
+import Layout from "../../../layouts/Layout.astro";
 import HeroSection from "../../../components/Sections/HeroSection.astro";
 import PlaceSection from "../../../components/Sections/PlaceSection.astro";
+import ExplainSection from "../../../components/Sections/ExplainSection.astro";
 import SpeakersSection from "../../../components/Sections/SpeakersSection.astro";
-import Speaker from "../../../components/Speaker.astro";
-import Layout from "../../../layouts/Layout.astro";
+import ConferencesSection from "../../../components/Sections/ConferencesSection.astro";
+import AcknowledgementsSection from "../../../components/Sections/AcknowledgementsSection.astro";
 ---
 
 <Layout
@@ -18,7 +15,7 @@ import Layout from "../../../layouts/Layout.astro";
 	path="/eventos/ciclo-conferencias"
 	image="/img/og-image-conferencias.jpg"
 >
-	<main class="relative">
+	<main id="conferences" class="relative">
 		<HeroSection />
 		<ExplainSection />
 		<SpeakersSection />
@@ -27,3 +24,4 @@ import Layout from "../../../layouts/Layout.astro";
 		<AcknowledgementsSection />
 	</main>
 </Layout>
+
