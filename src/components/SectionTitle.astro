@@ -1,0 +1,9 @@
+---
+const {title, class: astro_class = ''}  = Astro.props
+---
+
+<h2
+	class={`text-3xl font-bold sm:text-5xl text-center text-[var(--color-red)] font-roman py-12 ${astro_class}`}
+>
+	<slot/>
+</h2>

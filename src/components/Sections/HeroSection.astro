@@ -1,0 +1,33 @@
+---
+import Logo from "../Logo.astro";
+
+
+---
+
+<section
+	id="hero"
+	class="relative z-10 h-screen flex flex-col justify-center items-center gap-10"
+>
+	<picture>
+		<source srcset="/img/slide1.webp" type="image/webp" />
+		<img
+			src="/img/slide1.webp"
+			alt="Fotografía antigua de Nuestro Padre Jesús en su Santo Sepulcro"
+			class="absolute inset-0 w-full h-full object-cover object-left-top opacity-35 -z-10"
+		/>
+	</picture>
+	<div class="max-w-7xl mx-auto">
+		<h1
+			class="mx-auto my-0 px-6 sm:px-20 sm:py-6 sm:mt-10 md:py-7 text-4xl sm:text-5xl md:text-7xl font-bold text-[var(--color-red)] text-center font-roman"
+		>
+			Ciclo de Conferencias
+		</h1>
+		<span
+			class="text-md sm:text-2xl max-w-[80ch] text-center text-[var(--color-light)] font-roman block"
+		>
+			LXXV Aniversario de la hechura de<br />Nuestro Padre Jesús en su Santo
+			Sepulcro
+		</span>
+	</div>
+	<Logo class="w-56" />
+</section>

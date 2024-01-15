@@ -1,0 +1,50 @@
+---
+import SectionTitle from "../SectionTitle.astro";
+---
+
+<section id="acknowledgements" class="max-w-7xl mx-auto my-24">
+    <SectionTitle>Agradecimientos</SectionTitle>
+    <div 
+        class="grid grid-cols-1 my-16 sm:grid-cols-2 gap-24 sm:gap-0"
+
+        data-class="flex flex-row justify-evenly gap-6 py-12"
+    >
+        <a
+            class="flex flex-col gap-3 items-center"
+            href="http://www.motril.es/index.php?id=152"
+            target="_blank"
+        >
+            <picture>
+                <source
+                    srcset="/img/logos/area_cultura_motril.webp"
+                    type="image/webp"
+                />
+                <img
+                    src="/img/logos/area_cultura_motril.png"
+                    alt="Escudo del Area de Cultura del Ayuntamiento de Motril"
+                    class="h-20 mx-auto w-auto"
+                />
+            </picture>
+            <span class="text-center font-bold w-48"
+                >Area de cultura del Ayuntamiento de Motril</span
+            >
+        </a>
+        <a
+            class="flex flex-col gap-3 items-center"
+            href="http://www.motril.es"
+            target="_blank"
+        >
+            <picture>
+                <source srcset="/img/logos/ayto_motril.webp" type="image/webp" />
+                <img
+                    src="/img/logos/ayto_motril.png"
+                    alt="Escudo del Excelentisimo Ayuntamiento de Motril"
+                    class="h-20 mx-auto w-auto"
+                />
+            </picture>
+            <span class="text-center font-bold w-48"
+                >Excelentisimo Ayuntamiento de Motril</span
+            >
+        </a>
+    </div>
+</section>

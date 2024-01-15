@@ -1,0 +1,35 @@
+---
+import SectionTitle from "../SectionTitle.astro";
+import Calendar from "../icons/Calendar.astro";
+---
+
+<section id="Location" class="max-w-7xl mx-auto my-24 px-6 xl:px-0">
+	<SectionTitle>Localización</SectionTitle>
+	<div class="grid grid-cols-1 sm:grid-cols-2 gap-10">
+		<iframe
+            class="w-full h-full "
+			src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.0922319055967!2d-3.524018323732191!3d36.744357170844694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7190963bb7c125%3A0xce098db06093a660!2sCentro%20de%20Arte%20Jos%C3%A9%20Hern%C3%A1ndez%20Quero!5e0!3m2!1ses!2ses!4v1705340530872!5m2!1ses!2ses"
+			
+			style="border:0;"
+			allowfullscreen=""
+			loading="lazy"
+			referrerpolicy="no-referrer-when-downgrade"
+        />
+        <div class="py-1">
+            <h3
+                class="text-5xl font-bold text-left"
+            >Centro de Arte José Hernández Quero</h3>
+            <span
+                class="text-gray-400 text-3xl font-thin text-left block"
+            >Palacio Ruiz de Castro</span>
+            <p class="my-6">
+                El Centro de Arte José Hernández Quero, Palacio Ruíz de Castro en la Ciudad de Motril es una de las grandes apuestas por mantener el patrimonio cultural local y por dar a conocer la obra de uno de los artistas granadinos más destacados de la segunda mitad del siglo XX.
+            </p>
+            <div class="text-gray-50 w-8">
+                <Calendar />
+
+
+            </div>
+        </div>
+	</div>
+</section>

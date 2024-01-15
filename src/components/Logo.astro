@@ -1,13 +1,12 @@
 ---
-const { class: _class } = Astro.props
-console.log(_class)
+const { class: astro_class = '' } = Astro.props
 ---
 
 <picture>
     <source srcset="/img/escudo.webp" type="image/webp" />
     <img
         {...Astro.props}
-        class={`max-w-full aspect-square ${_class}`}
+        class={`max-w-full aspect-square ${astro_class}`}
         src="/img/escudo.png"
         alt="Ciclo de Conferencias - Cofradía del Santo Sepulcro y Ntra. Sra. de los Dolores (Motril)"
     />

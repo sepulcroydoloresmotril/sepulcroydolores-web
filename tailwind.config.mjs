@@ -10,8 +10,7 @@ export default {
 				// https://all-free-download.com/font/download/roman_font_7_6914693.html 
 			 	roman: ['"Roman SD"', ...defaultTheme.fontFamily.serif],
 			},
-		},
-		colors: {},
+		}
 	},
 	plugins: [],
 }

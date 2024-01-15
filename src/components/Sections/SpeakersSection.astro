@@ -1,0 +1,24 @@
+---
+import SectionTitle from "../SectionTitle.astro";
+import Speaker from "../Speaker.astro";
+import SPEAKERS from "../../constants/speakers.js"
+---
+
+<section id="speakers" class="max-w-7xl mx-5 xl:mx-auto my-24 mt-12 ">
+    <SectionTitle>Ponentes</SectionTitle>
+    <p
+        class="max-w-xl mx-auto text-xl text-slate-100 text-center [text-wrap:balance] mt-4"
+    >
+        Personas relevantes y profesionales en la religiosidad popular, el arte
+        y la historia
+    </p>
+    <div
+        class="grid grid-cols-1 my-16 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8"
+    >
+        {
+            SPEAKERS.map((speaker, id) => (
+                <Speaker key={`spk-${id}`} {...speaker} id={id} />
+            ))
+        }
+    </div>
+</section>

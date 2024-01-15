@@ -1,0 +1,96 @@
+---
+import SectionTitle from "../SectionTitle.astro";
+
+---
+
+<section id="explain" class=" max-w-7xl mx-auto my-24 mt-12 px-6  ">
+    <SectionTitle>Motivación</SectionTitl>
+    <div id="explain-grid" class="max-w[70ch] text-xl text-slate-100 [text-wrap:pretty] mt-4">
+        <p class="leading-7">
+            El pasado mes de marzo, nuestra cofradía del Santo Sepulcro y Nuestra
+            Señora de los Dolores celebraba con gozo el inicio del 75 aniversario
+            de la realización de la talla del Cristo Yacente por Domingo Sánchez
+            Mesa, lo que suponía la revitalización de la semana santa motrileña
+            tras la contienda civil española y el inicio de nuevo de la
+            celebración de las procesiones penitenciales.
+        </p>
+        <p class="myleading-7">
+            Con tal motivo, al final de esta importante efeméride, nuestra
+            cofradía organiza tres sesiones de formación cofrade sobre diferentes
+            temáticas relacionadas con la religiosidad popular, el arte y la
+            historia.
+        </p>
+        <p class="leading-7">
+            Es por ello, que le invitamos a estas interesantes charlas en donde se
+            unen e interconectan las diferentes facetas y aspectos de la vida de
+            la cofradía y del resto de hermandades de nuestra ciudad. De este
+            modo, podremos profundizar en la importancia evangelizadora de nuestra
+            corporación, en la contribución de las cofradías del Santo Entierro a
+            la historia del arte y en el papel de nuestra hermandad en el contexto
+            histórico-artístico de Motril.
+        </p>
+        <picture>
+            <source srcset="/img/cristo_yacente_cara.jpg" type="image/webp" />
+            <img
+                src="/img/cristo_yacente_cara.jpg"
+                alt="Nuestro Padre Jesús en su Santo Sepulcro"
+                class="mx-auto w-auto lg:w-72 md:self-center"
+            />
+
+        </picture>
+    </div>
+</section>
+
+
+<style>
+    /* 768 1024 */
+    #explain-grid > p:nth-child(1) {
+        grid-area: p1;
+    }
+    #explain-grid > p:nth-child(2) {
+        grid-area: p2;
+    }
+    #explain-grid > p:nth-child(3) {
+        grid-area: p3;
+    }
+    #explain-grid > picture {
+        grid-area: img;
+    }  
+
+    #explain-grid {
+        display: grid;
+        row-gap: 2rem;
+        column-gap: 0;
+        grid-template-areas: 
+            "p1"
+            "img"
+            "p2"
+            "p3";
+    }
+
+    @media (min-width: 768px) {
+        picture {
+            align-self: center;
+            justify-self: center;
+            place-self: center;
+        }
+
+        #explain-grid {
+            row-gap: 2rem;
+            column-gap: 2rem;
+            grid-template-areas: 
+                "img p1"
+                "img p2"
+                "img p3";
+        }
+    }
+
+    @media (min-width: 1024px) {
+        #explain-grid {
+            grid-template-areas: 
+                "img p1"
+                "img p2"
+                "img p3";
+        }
+    }
+</style>
