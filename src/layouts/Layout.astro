@@ -13,7 +13,12 @@ interface Props {
 }
 
 const { title, description, image, keywords, footer=true, header=true } = Astro.props;
-const {href: url} = Astro.url
+const {
+	href, 
+	pathname
+} = Astro.url
+const url = 'https://sepulcroydoloresmotril.es' + pathname
+
 
 ---
 
