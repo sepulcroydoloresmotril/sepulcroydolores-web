@@ -1,8 +1,6 @@
 ---
 import Logo from "../Logo.astro";
 import Slider from "../Slider.astro";
-
-
 ---
 
 <section
@@ -12,13 +10,14 @@ import Slider from "../Slider.astro";
 
 	<!-- <Slider /> -->
 	<picture>
-		<source srcset="/img/slide1.webp" type="image/webp" />
+		<source srcset="/img/slider/slider1.webp" type="image/webp" />
 		<img
-			src="/img/slide1.webp"
+			src="/img/slider/slider1.webp"
 			alt="Fotografía antigua de Nuestro Padre Jesús en su Santo Sepulcro"
 			class="absolute inset-0 w-full h-full object-cover object-left-top opacity-35 -z-10"
 		/>
 	</picture>
+	<Logo class="w-56 -mt-36" />
 	<div class="max-w-7xl mx-auto">
 		<h1
 			class="mx-auto my-0 px-6 sm:px-20 sm:py-6 sm:mt-10 md:py-7 text-4xl sm:text-5xl md:text-7xl font-bold text-[var(--color-red)] text-center font-roman"
@@ -32,5 +31,4 @@ import Slider from "../Slider.astro";
 			Sepulcro
 		</span>
 	</div>
-	<Logo class="w-56" />
 </section>
