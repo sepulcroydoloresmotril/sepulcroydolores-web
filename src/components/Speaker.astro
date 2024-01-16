@@ -1,5 +1,5 @@
 ---
-const {img, name, title} = Astro.props
+const {img, name, title, description} = Astro.props
 ---
 <article class='relative flex flex-col items-center justify-center w-full p-[1px] transition-all rounded-md bg-gradient-to-b from-white/20 via-transparent to-transparent hover:via-white/10 group'>
     <div class='bg-[#000214]/50 flex-1 group-hover:bg-[#cf1f21]/40 w-full px-6 py-10 rounded transition'>
@@ -16,6 +16,10 @@ const {img, name, title} = Astro.props
         <h3 class='mt-4 text-2xl font-bold text-center text-white'>
             {name}
         </h3>
-        <p class='text-xl text-center text-slate-100'>{title}</p>
+        <h4 class='text-sm text-center text-slate-300 italic mb-6'>{title}</h4>
+        {description.map((paragraph:string, i:any) => (
+            <p class='mt-4 text-lg text-left text-pretty max-w-[60ch] text-white'>{paragraph}</p>
+        ))}
+
     </div>
 </article>

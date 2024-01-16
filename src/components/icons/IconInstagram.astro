@@ -1,11 +1,11 @@
 ---
-const { size='64', color='white' } = Astro.props
+const { size='64' } = Astro.props
 ---
 
-<span style={`color: ${color}`} ><svg
+<span class:list={[Astro.props.class]} ><svg
 	width={`${size}px`}
 	height={`${size}px`}
-	viewBox="0 0 20 20"
+	viewBox="0 0 19 20"
 	version="1.1"
 	xmlns="http://www.w3.org/2000/svg"
 	xmlns:xlink="http://www.w3.org/1999/xlink"

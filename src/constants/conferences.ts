@@ -12,7 +12,7 @@ const CONFERENCES = [
 		speaker: "Rdo. D. José Gabriel Martín Rodríguez",
         speaker_img: 'jose_gabriel',
         image: {
-            name: "cristo_yacente_cara",
+            name: "conference1",
 		    alt: "Conferencia 1",
         }
 	},
@@ -28,7 +28,7 @@ const CONFERENCES = [
 		speaker: "D. Domingo López Fernández",
         speaker_img: 'domingo',
         image: {
-            name: "cristo_yacente_cara",
+            name: "conference2",
 		    alt: "Conferencia 2",
         }
 	},
@@ -46,7 +46,7 @@ const CONFERENCES = [
 		speaker: "Dr. David Martín López",
         speaker_img: 'david',
         image: {
-            name: "cristo_yacente_cara",
+            name: "conference3",
 		    alt: "Conferencia 3",
         }
 	},

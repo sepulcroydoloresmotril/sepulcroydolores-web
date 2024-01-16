@@ -1,0 +1,35 @@
+---
+import SLIDER from '../constants/slider.ts'
+---
+
+<div class="slider relative flex w-screen h-screen overflow-scroll" >
+    {
+        SLIDER.map((item, index) => {
+            return (
+                <picture>
+                    <source srcset={`/img/${item.name}.webp`} type="image/webp" />
+                    <img
+                        class="absolute inset-0 w-full h-full object-cover object-left-top opacity-35 -z-10"
+                        src={`/img/${item.name}.jpg`}
+                        alt={item.alt}
+                        data-class="absolute inset-0 w-full h-full object-cover object-left-top opacity-35 -z-10"
+                    />
+                </picture>
+            )
+        })
+    }
+</div>
+
+<style>
+    .slider {
+        scroll-snap-type: x mandatory;
+    }
+    img {
+        width: 100%;
+        left: 0;
+        position: sticky;
+        object-fit: cover;
+        scroll-snap-align: center;
+        
+    }
+</style>

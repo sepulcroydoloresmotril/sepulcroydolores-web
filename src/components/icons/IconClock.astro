@@ -1,8 +1,8 @@
 ---
-const { size='64', color='white' } = Astro.props
+const { size='64' } = Astro.props
 ---
 
-<span style={`color: ${color}`} ><svg
+<span class:list={[Astro.props.class]} ><svg
 	width={`${+size}px`}
 	height={`${+size}px`}
 	viewBox="2 2 20 20"
