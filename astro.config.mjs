@@ -1,7 +1,8 @@
 import { defineConfig } from 'astro/config';
-
 import tailwind from "@astrojs/tailwind";
 import preact from "@astrojs/preact";
+
+import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,5 +12,11 @@ export default defineConfig({
       destination: '/eventos/ciclo-conferencias'
     }
   },
-  integrations: [tailwind(), preact()]
+  integrations: [tailwind(), preact()],
+  output: "server",
+  adapter: vercel({
+    webAnalytics: {
+      enabled: true,
+    },
+  })
 });
