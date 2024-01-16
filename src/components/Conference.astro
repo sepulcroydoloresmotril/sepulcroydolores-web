@@ -21,10 +21,10 @@ const {title, description, author, author_img, date, time, image, key} = Astro.p
         id="card-content" 
         class='bg-[#000214]/50 flex-1 lg:col-span-3 group-hover:bg-[#cf1f21]/40  px-6 py-6 rounded transition bg-gradient-to-r from-white/20 via-transparent to-transparent hover:via-white/10'
     >
-    <header  id="card-title"
+        <header  id="card-title"
             class="mb-5 flex flex-row items-start gap-2"
         >
-            <h3 class="text-3xl font-bold text-left text-[var(--color-red)] font-roman group-hover:text-[var(--color-light)]">{title}</h3>    
+            <h3 class="text-xl sm:text-3xl font-bold text-left text-[var(--color-red)] font-roman group-hover:text-[var(--color-light)]">{title}</h3>    
             <figure  class=' min-w-16'>
                     
                 <picture>
@@ -36,7 +36,7 @@ const {title, description, author, author_img, date, time, image, key} = Astro.p
         </header>
         <div id="card-body" class="w-full flex flex-col gap-y-6">
             {description.map((paragraph:string, index:any) => (
-                <p class='text-xl text-left max-w-[70ch] text-pretty text-slate-100 '>{paragraph}</p>
+                <p class='text-lg sm:text-xl text-left max-w-[70ch] text-pretty text-slate-100 '>{paragraph}</p>
             ))}
         </div>
         <footer id="card-footer" class="grid grid-cols-1 lg:grid-cols-2 items-center justify-between mt-5 gap-6">
