@@ -1,7 +1,7 @@
 import { defineMiddleware } from "astro:middleware";
 
 export const onRequest = defineMiddleware((context, next) => {
-  if (context.url.pathname === "/bono-feria") {
+  if (context.url.pathname === "https://sepulcroydoloresmotril.es/bono-feria") {
     return new Response(null, {
       status: 302,
       headers: {
