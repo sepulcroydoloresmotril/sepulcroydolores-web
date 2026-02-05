@@ -1,0 +1,119 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import IconFacebook from "../../components/icons/IconFacebook.astro";
+import IconInstagram from "../../components/icons/IconInstagram.astro";
+import IconYoutube from "../../components/icons/IconYoutube.astro";
+import IconEmail from "../../components/icons/IconEmail.astro";
+
+const links = [
+   
+    {
+        title: "Formulario de inscripción 2026",
+        href: "/formulario-inscripcion",
+        img: "/img/escudo_light.webp",
+        external: false,
+    },
+    {
+        title: "Ciclo de Conferencias 75 aniversario",
+        href: "/eventos/ciclo-conferencias",
+        img: "/img/og-image-conferencias.jpg",
+        external: false,
+    }, 
+];
+
+const rrss = [
+    {
+        title: "Facebook",
+        href: "https://www.facebook.com/CofradiaSepulcroyDoloresMotril",
+        icon: IconFacebook,
+        external: true,
+    },
+    {
+        title: "Instagram",
+        href: "https://www.instagram.com/cofradiasepulcroydoloresmotril",
+        icon: IconInstagram,
+        external: true,
+    },
+    // {
+    //     title: "YouTube",
+    //     href: "https://www.youtube.com/channel/UCX9z5Z5Z5Z5Z5Z5Z5Z5Z",
+    //     icon: IconYoutube,
+    //     external: true,
+    // },
+    {
+        title: "Email",
+        href: "mailto:cofradiasepulcroydoloresmotril@gmail.com",
+        icon: IconEmail,
+        external: true,
+    },
+];
+---
+<script>
+    
+</script>
+
+<Layout 
+    title="Links - Cofradía del Santo Sepulcro y Nuestra Señora de los Dolores Motril" 
+    description="En esta sección encontrarás enlaces relacionados con la Cofradía del Santo Sepulcro y Nuestra Señora de los Dolores de Motril, incluyendo recursos útiles, sitios web de interés y redes sociales para mantenerte informado sobre nuestras actividades y eventos."
+    keywords="enlaces, links, recursos, redes sociales, información, eventos, actividades, Cofradía del Santo Sepulcro y Nuestra Señora de los Dolores Motril"
+	path="/links"
+	image=""
+    header
+>
+    <main class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 lg:py-1 mt-32">
+        <header class="w-100">
+            <h1 class="text-4xl font-bold tracking-tight text-[var(--color-red)] font-garamond uppercase sm:text-4xl  text-center ">Enlaces</h1>
+        </header>
+
+        <ul class=" mt-8 grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-2">
+            {links.map((link) => {
+                return (
+                    <li>
+                        <a
+                            class="group flex items-center gap-4 rounded-2xl border border-slate-200 bg-white/70 p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400/70"
+                            href={link.href}
+                            target={link.external ? "_blank" : undefined}
+                            rel={link.external ? "noopener" : undefined}
+                        >
+                            <div class="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-slate-200 bg-slate-50 text-slate-700">
+                                <img
+                                    src={link.img}
+                                    alt={link.title}
+                                    loading="lazy"
+                                    class="h-full w-full object-cover"
+                                />
+                            </div>
+                            <div class="flex-1">
+                                <span class="block text-base font-medium text-slate-900 group-hover:text-slate-950">
+                                    {link.title}
+                                </span>
+                                <span class="mt-1 block text-sm text-slate-500">
+                                    {link.external ? "Abrir enlace externo" : "Ver más información"}
+                                </span>
+                            </div>
+                        </a>
+                    </li>
+                );
+            })}
+            <li class="flex flex-row justify-around col-span-full p-4 mt-4">
+
+                {rrss.map((link) => {
+                    const Icon = link.icon;
+                    return (
+                        <a
+                            class="group flex items-center gap-4"
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener"
+                            >
+                                <span class="flex flex-col justify-between items-center hover:scale-110 transition-transform duration-300 h-20">
+                                    <Icon size="42" title={link.title} />
+                                    <span class="text-sm text-slate-200 group-hover:text-slate-300">{link.title}</span>
+                                </span>
+                        </a>    
+                    );
+                })}
+            </li>
+        </ul>
+    </main>
+</Layout>
