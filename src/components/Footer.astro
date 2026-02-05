@@ -14,7 +14,16 @@ import IconInstagram from "./icons/IconInstagram.astro";
 					href="https://sepulcroydoloresmotril.es"
 					class="mt-2 flex items-center justify-center"
 				>
-					<Logo class="h-auto w-24" />
+					
+					<picture>
+						<source srcset={'/img/escudo_blanco_nombre.webp'} type="image/webp" />
+						<img
+							class={`max-w-full aspect-square h-auto w-28`}
+							srcset={'/img/escudo_blanco_nombre.webp'}
+							src={'/img/escudo_blanco_nombre.png'}
+							alt="Ciclo de Conferencias - Cofradía del Santo Sepulcro y Ntra. Sra. de los Dolores (Motril)"
+						/>
+					</picture>
 				</a>
 			</div>
 			
@@ -41,10 +50,10 @@ import IconInstagram from "./icons/IconInstagram.astro";
 				</Link>
 			</div>
 		</div>
-		<hr class="my-4 mt-6 border-white/80 sm:mx-auto lg:my-4 lg:mt-8" />
+		<hr class="my-4 mt-6 border-white/80 sm:mx-auto lg:my-4 lg:mt-4" />
 		<div class="sm:flex sm:items-center sm:justify-between">
 			<span class="text-sm text-black-400 sm:text-center">
-				© 2024 Cofradía del Santo Sepulcro y Nuestra Señora de los Dolores
+				© 2025 Cofradía del Santo Sepulcro y Nuestra Señora de los Dolores
 			</span>
 			<span class="text-sm text-black-400 sm:text-center">
 				Motril - Granada
