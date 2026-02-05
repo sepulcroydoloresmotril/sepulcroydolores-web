@@ -9,7 +9,7 @@ export default defineConfig({
   redirects: {
     '/': {
       status: 302,
-      destination: '/eventos/ciclo-conferencias'
+      destination: '/links'
     }
   },
   integrations: [tailwind(), preact()],

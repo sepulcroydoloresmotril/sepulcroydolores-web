@@ -10,7 +10,9 @@ export default {
 			fontFamily: {
 				// otra fuente
 				// https://all-free-download.com/font/download/roman_font_7_6914693.html 
-			 	roman: ['"Roman SD"', ...defaultTheme.fontFamily.serif],
+			 	roman: ['"EB Garamond"', ...defaultTheme.fontFamily.serif],
+				lato: ['Lato', ...defaultTheme.fontFamily.sans],
+				garamond: ['"EB Garamond"', ...defaultTheme.fontFamily.serif],
 			},
 		}
 	},
