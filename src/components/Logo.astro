@@ -1,14 +1,15 @@
 ---
-const { class: astro_class = '' } = Astro.props
+const { class: astro_class = '', isDark = false } = Astro.props
+const imgName = isDark ? '/img/escudo_dark' : '/img/escudo_light'
 ---
 
 <picture>
-    <source srcset="/img/escudo.webp" type="image/webp" />
+    <source srcset={imgName + '.webp'} type="image/webp" />
     <img
         {...Astro.props}
         class={`max-w-full aspect-square ${astro_class}`}
-        srcset="/img/escudo.webp"
-        src="/img/escudo.png"
+        srcset={imgName + '.webp'}
+        src={imgName + '.png'}
         alt="Ciclo de Conferencias - Cofradía del Santo Sepulcro y Ntra. Sra. de los Dolores (Motril)"
     />
 </picture>
