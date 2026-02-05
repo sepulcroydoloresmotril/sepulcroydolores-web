@@ -1,0 +1,13 @@
+---
+interface Props {
+	id: string;
+    class?: string;
+    withHeader?: boolean;
+}
+
+const { id, class: className, withHeader } = Astro.props;
+---
+
+<main id={id} class={['relative', className, withHeader ? 'mt-nav' : '' ].filter(Boolean).join(' ')}>
+    <slot />
+</main>

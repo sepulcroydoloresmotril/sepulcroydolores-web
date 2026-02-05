@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Main from '../components/Main.astro';
+import HeroVideo from '../pages/_home/HeroVideo.astro';
 ---
 
 <Layout 
@@ -7,9 +9,14 @@ import Layout from '../layouts/Layout.astro';
 	description='Astro is a fresh but familiar approach to building websites. Astro combines decades of proven performance best practices with the DX improvements of the component-oriented era. Use your favorite JavaScript framework and automatically ship the bare-minimum amount of JavaScript—by default.'
 	keywords=''
 >
-	<main>
-		<h1 class="text-gradient">Under construction</h1>
-	</main>
+	<Main id="home" withHeader>
+		
+		<section
+			class="relative z-10 min-h-screen flex flex-col justify-center items-center gap-10 lg:gap-5"
+		>
+			<HeroVideo />
+		</section>
+	</Main>	
 </Layout>
 
 <style>

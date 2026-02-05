@@ -7,10 +7,10 @@ import vercel from "@astrojs/vercel/serverless";
 // https://astro.build/config
 export default defineConfig({
   redirects: {
-    '/': {
-      status: 302,
-      destination: '/eventos/ciclo-conferencias'
-    }
+    // '/': {
+    //   status: 302,
+    //   destination: '/eventos/ciclo-conferencias'
+    // }
   },
   integrations: [tailwind(), preact()],
   output: "server",

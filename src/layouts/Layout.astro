@@ -1,6 +1,8 @@
 ---
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
+import '../styles/fonts.css'
+import HeroSection from '@/components/Sections/HeroSection.astro';
 
 interface Props {
 	title: string;
@@ -63,6 +65,10 @@ const url = 'https://sepulcroydoloresmotril.es' + pathname
 			type="font/ttf"
 			crossorigin
 		/>
+
+		<script is:inline src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+		<script is:inline src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+		<script is:inline src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/TextPlugin.min.js"></script>
 	</head>
 	<body>
 		{header && <Header />}
@@ -74,20 +80,22 @@ const url = 'https://sepulcroydoloresmotril.es' + pathname
 <style is:global>
 	:root {
         color-scheme: dark;
-		--color-light: rgb(254, 254, 254);
-		--color-dark: rgb(24, 24, 33);
-		--color-red: rgb(207, 31, 33);
-	}
-	@font-face {
-		font-family: 'Roman SD';
-		src: url('/fonts/roman_sd.ttf') format('truetype');
-		font-weight: 400;
-		font-style: normal;
+
+		--theme-color-black: #191919;
+		--theme-color-white: #f4f2ef;
+		--theme-color-red: #991b1e;
+		--theme-color-gold: #88753a;
+		--theme-color-silver: #8a8b8d;
+		--color-light: #f4f2ef;
+		--color-dark: #191919;
+		--color-red: #991b1e;
 	}
 	html {
-		color: var(--color-light);
-		font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-		background: var(--color-dark);
+		color: var(--theme-color-white);
+		background-color: var(--theme-color-black);
+		font-family: 'Lato', sans-serif;
+		font-size: 16px;
+		scroll-behavior: smooth;
 	}
 	body {
 		margin: 0;
@@ -123,3 +131,9 @@ const url = 'https://sepulcroydoloresmotril.es' + pathname
 	}
 
 </style>
+
+<script>
+	document.addEventListener("DOMContentLoaded", (event) => {
+		gsap.registerPlugin(ScrollTrigger,TextPlugin)
+	});
+</script>
