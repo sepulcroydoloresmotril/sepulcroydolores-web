@@ -3,7 +3,8 @@ import Logo from "../components/Logo.astro";
 import Layout from "../layouts/Layout.astro";
 
 const { pathname } = Astro.url;
-const href = 'https://seplucroydolores.es' + pathname;
+const { PUBLIC_SITE_URL } = import.meta.env;
+const href = PUBLIC_SITE_URL + pathname;
 ---
 
 <Layout
@@ -17,18 +18,10 @@ const href = 'https://seplucroydolores.es' + pathname;
 	<main class="max-w-7xl  mx-auto flex flex-col gap-5 justify-center items-center h-screen overflow-hidden">
 		<Logo class="w-36 mx-auto" isDark />
 		<h1 class="text-5xl">
-			<span class="statusCode font-bold text-[var(--color-red)]">Error 404:</span>
+			<span class="statusCode font-bold text-brand-red">Error 404:</span>
 			<span class="statusMessage">Página no encontrada</span>
 		</h1>
 
-		<pre>{href}</pre>
+		<pre class="bg-brand-black/10 text-brand-black dark:bg-brand-pearl/10 dark:text-brand-pearl px-5 py-4 my-5">{href}</pre>
 	</main>
 </Layout>
-
-<style>
-	pre {
-		background: #414141;
-		padding: 20px;
-		margin: 20px 0;
-	}
-</style>
