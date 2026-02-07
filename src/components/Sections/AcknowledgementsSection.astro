@@ -1,5 +1,8 @@
 ---
 import SectionTitle from "../SectionTitle.astro";
+
+const PUBLIC_MOTRIL_CULTURA_URL = "http://www.motril.es/index.php?id=152";
+const PUBLIC_MOTRIL_AYTO_URL  = "http://www.motril.es";
 ---
 
 <section id="acknowledgements" class="max-w-7xl mx-auto my-24">
@@ -11,7 +14,7 @@ import SectionTitle from "../SectionTitle.astro";
     >
         <a
             class="flex flex-col gap-3 items-center"
-            href="http://www.motril.es/index.php?id=152"
+            href={PUBLIC_MOTRIL_CULTURA_URL}
             target="_blank"
         >
             <picture>
@@ -31,7 +34,7 @@ import SectionTitle from "../SectionTitle.astro";
         </a>
         <a
             class="flex flex-col gap-3 items-center"
-            href="http://www.motril.es"
+            href={PUBLIC_MOTRIL_AYTO_URL}
             target="_blank"
         >
             <picture>

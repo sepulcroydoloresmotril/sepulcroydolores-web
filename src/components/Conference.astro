@@ -14,17 +14,17 @@ const {title, description, author, author_img, date, time, image, key} = Astro.p
 >
     <div 
         id="card-image"
-        class="conference-bg  lg:col-span-1 h-96 lg:h-full w-full bg-slate-500" 
+        class="conference-bg lg:col-span-1 h-96 lg:h-full w-full bg-brand-black/10 dark:bg-brand-pearl/10" 
     >
     </div>
     <div 
         id="card-content" 
-        class='bg-[#000214]/50 flex-1 lg:col-span-3 group-hover:bg-[#cf1f21]/40  px-6 py-6 rounded transition bg-gradient-to-r from-white/20 via-transparent to-transparent hover:via-white/10'
+        class='bg-brand-pearl/80 dark:bg-brand-black/50 flex-1 lg:col-span-3 group-hover:bg-brand-red/15 dark:group-hover:bg-brand-red/40 px-6 py-6 rounded transition bg-gradient-to-r from-brand-black/10 via-transparent to-transparent dark:from-brand-pearl/20 hover:via-brand-black/5 dark:hover:via-brand-pearl/10'
     >
         <header  id="card-title"
             class="mb-5 flex flex-row items-start gap-2"
         >
-            <h3 class="text-xl sm:text-3xl font-bold text-left text-[var(--color-red)] font-roman group-hover:text-[var(--color-light)]">{title}</h3>    
+            <h3 class="text-xl sm:text-3xl font-bold text-left text-brand-red font-roman group-hover:text-brand-black dark:group-hover:text-brand-pearl">{title}</h3>    
             <figure  class=' min-w-16'>
                     
                 <picture>
@@ -36,21 +36,21 @@ const {title, description, author, author_img, date, time, image, key} = Astro.p
         </header>
         <div id="card-body" class="w-full flex flex-col gap-y-6">
             {description.map((paragraph:string, index:any) => (
-                <p class='text-lg sm:text-xl text-left max-w-[70ch] text-pretty text-slate-100 '>{paragraph}</p>
+                <p class='text-lg sm:text-xl text-left max-w-[70ch] text-pretty text-brand-black/70 dark:text-brand-pearl/80'>{paragraph}</p>
             ))}
         </div>
         <footer id="card-footer" class="grid grid-cols-1 lg:grid-cols-2 items-center justify-between mt-5 gap-6">
             <div class="flex flex-row items-center gap-4">
-                <IconCalendar size="32" class="text-[var(--color-light)]"/>
-                <span class="text-xl text-left text-[var(--color-light)]">{date}</span>
+                <IconCalendar size="32" class="text-brand-black dark:text-brand-pearl"/>
+                <span class="text-xl text-left text-brand-black dark:text-brand-pearl">{date}</span>
             </div>
             <div class="flex flex-row items-center gap-4">
-                <IconClock size="32" class="text-[var(--color-light)]"/>
-                <span class="text-xl text-left text-[var(--color-light)]">{time}</span>
+                <IconClock size="32" class="text-brand-black dark:text-brand-pearl"/>
+                <span class="text-xl text-left text-brand-black dark:text-brand-pearl">{time}</span>
             </div>
             <div class="flex flex-row items-center gap-4">
-                <IconMap size="32" class=" text-[var(--color-light)]"/>
-                <span class="text-xl text-left text-[var(--color-light)]">Centro de Arte José Hernández Quero</span>
+                <IconMap size="32" class="text-brand-black dark:text-brand-pearl"/>
+                <span class="text-xl text-left text-brand-black dark:text-brand-pearl">Centro de Arte José Hernández Quero</span>
             </div>
     </div>
 </article>

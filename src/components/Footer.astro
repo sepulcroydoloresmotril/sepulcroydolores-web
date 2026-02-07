@@ -4,14 +4,21 @@ import Logo from "./Logo.astro";
 import IconEmail from "./icons/IconEmail.astro";
 import IconFacebook from "./icons/IconFacebook.astro";
 import IconInstagram from "./icons/IconInstagram.astro";
+
+const {
+	PUBLIC_SITE_URL,
+	PUBLIC_FACEBOOK_URL,
+	PUBLIC_INSTAGRAM_URL,
+	PUBLIC_EMAIL,
+} = import.meta.env;
 ---
 
-<footer class="">
+<footer class="bg-brand-black/5 text-brand-black dark:bg-brand-black/30 dark:text-brand-pearl">
 	<div class="mx-auto w-full max-w-screen-xl p-4 px-6 py-6 lg:py-4">
 		<div class="sm:flex sm:justify-between items-center">
 			<div class="mb-6 flex flex-col md:mb-0">
 				<a
-					href="https://sepulcroydoloresmotril.es"
+					href={PUBLIC_SITE_URL}
 					class="mt-2 flex items-center justify-center"
 				>
 					
@@ -28,42 +35,36 @@ import IconInstagram from "./icons/IconInstagram.astro";
 			</div>
 			
 			<div id="rrss" class="text-[0.75rem] sm:text-lg mt-6 sm:mt-0 flex flex-col justify-center items-center sm:items-end gap-y-2">
-				<Link href="https://www.facebook.com/CofradiaSepulcroyDoloresMotril" class="text-white hover:text-primary duration-300 flex flex-row sm:flex-row-reverse gap-x-2">
+				<Link href={PUBLIC_FACEBOOK_URL} class="text-brand-black hover:text-brand-red dark:text-brand-pearl duration-300 flex flex-row sm:flex-row-reverse gap-x-2">
 					<>
 						<IconFacebook size="24" title="Facebook"/>
 						<span>CofradiaSepulcroyDoloresMotril</span>
 					</>
 				</Link>
 					
-				<Link href="https://www.instagram.com/cofradiasepulcroydoloresmotril" class="text-white hover:text-primary duration-300 flex flex-row sm:flex-row-reverse gap-x-2">
+				<Link href={PUBLIC_INSTAGRAM_URL} class="text-brand-black hover:text-brand-red dark:text-brand-pearl duration-300 flex flex-row sm:flex-row-reverse gap-x-2">
 					<>
 						<IconInstagram size="24" title="Instagram"/>
 						<span>@cofradiasepulcroydoloresmotril</span>
 					</>
 				</Link>
 					
-				<Link href=mailto:"cofradiasepulcroydoloresmotril@gamil.com" class="text-white hover:text-primary duration-300 flex flex-row sm:flex-row-reverse gap-x-2">
+				<Link href={`mailto:${PUBLIC_EMAIL}`} class="text-brand-black hover:text-brand-red dark:text-brand-pearl duration-300 flex flex-row sm:flex-row-reverse gap-x-2">
 					<>	
-						<IconEmail size="24" title="Email" class="group-hover:text-[var(--color-red)]"/>
-						<span>cofradiasepulcroydoloresmotril@gamil.com</span>
+						<IconEmail size="24" title="Email" class="group-hover:text-brand-red"/>
+						<span>{PUBLIC_EMAIL}</span>
 					</>
 				</Link>
 			</div>
 		</div>
-		<hr class="my-4 mt-6 border-white/80 sm:mx-auto lg:my-4 lg:mt-4" />
+		<hr class="my-4 mt-6 border-brand-black/20 dark:border-brand-pearl/40 sm:mx-auto lg:my-4 lg:mt-4" />
 		<div class="sm:flex sm:items-center sm:justify-between">
-			<span class="text-sm text-black-400 sm:text-center">
+			<span class="text-sm text-brand-black/70 dark:text-brand-pearl/70 sm:text-center">
 				© 2025 Cofradía del Santo Sepulcro y Nuestra Señora de los Dolores
 			</span>
-			<span class="text-sm text-black-400 sm:text-center">
+			<span class="text-sm text-brand-black/70 dark:text-brand-pearl/70 sm:text-center">
 				Motril - Granada
 			</span>
 		</div>
 	</div>
 </footer>
-
-<style>
-	footer {
-		background-color: rgba(0, 0, 0, 0.3);
-	}
-</style>

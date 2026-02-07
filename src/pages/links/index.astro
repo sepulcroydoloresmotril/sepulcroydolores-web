@@ -5,32 +5,43 @@ import IconInstagram from "../../components/icons/IconInstagram.astro";
 import IconYoutube from "../../components/icons/IconYoutube.astro";
 import IconEmail from "../../components/icons/IconEmail.astro";
 
+const {
+    PUBLIC_FACEBOOK_URL,
+    PUBLIC_INSTAGRAM_URL,
+    PUBLIC_EMAIL,
+    PUBLIC_GOOGLE_FORM_URL,
+} = import.meta.env;
+
 const links = [
    
     {
         title: "Formulario de inscripción 2026",
-        href: "/formulario-inscripcion",
+        href: PUBLIC_GOOGLE_FORM_URL,
         img: "/img/escudo_light.webp",
-        external: false,
+        external: true,
+        description: "Inscripción para nuevos hermanos y actualización de hermanos para el año 2026.",
+        isNew: true,
     },
     {
-        title: "Ciclo de Conferencias 75 aniversario",
+        title: "Ciclo de Conferencias 75 aniversario - 2024",
         href: "/eventos/ciclo-conferencias",
         img: "/img/og-image-conferencias.jpg",
         external: false,
+        description: "Ciclo de Conferencias con motivo del 75 aniversario de la hechura de Nuestro Padre Jesús en su Santo Sepulcro.",
+        isNew: false
     }, 
 ];
 
 const rrss = [
     {
         title: "Facebook",
-        href: "https://www.facebook.com/CofradiaSepulcroyDoloresMotril",
+        href: PUBLIC_FACEBOOK_URL,
         icon: IconFacebook,
         external: true,
     },
     {
         title: "Instagram",
-        href: "https://www.instagram.com/sepulcroydoloresmotril",
+        href: PUBLIC_INSTAGRAM_URL,
         icon: IconInstagram,
         external: true,
     },
@@ -42,7 +53,7 @@ const rrss = [
     // },
     {
         title: "Email",
-        href: "mailto:cofradiasepulcroydoloresmotril@gmail.com",
+        href: `mailto:${PUBLIC_EMAIL}`,
         icon: IconEmail,
         external: true,
     },
@@ -61,37 +72,44 @@ const rrss = [
     header
 >
     <main class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 lg:py-1 mt-32">
-        <header class="w-100">
-            <h1 class="text-4xl font-bold tracking-tight text-[var(--color-red)] font-garamond uppercase sm:text-4xl  text-center ">Enlaces</h1>
-        </header>
-
+        <h1 class="text-4xl font-bold tracking-tight text-brand-red font-garamond uppercase sm:text-4xl text-center">Enlaces</h1>
         <ul class=" mt-8 grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-2">
             {links.map((link) => {
                 return (
-                    <li>
-                        <a
-                            class="group flex items-center gap-4 rounded-2xl border border-slate-200 bg-white/70 p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400/70"
-                            href={link.href}
-                            target={link.external ? "_blank" : undefined}
-                            rel={link.external ? "noopener" : undefined}
-                        >
-                            <div class="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-slate-200 bg-slate-50 text-slate-700">
-                                <img
-                                    src={link.img}
-                                    alt={link.title}
-                                    loading="lazy"
-                                    class="h-full w-full object-cover"
-                                />
-                            </div>
-                            <div class="flex-1">
-                                <span class="block text-base font-medium text-slate-900 group-hover:text-slate-950">
-                                    {link.title}
-                                </span>
-                                <span class="mt-1 block text-sm text-slate-500">
-                                    {link.external ? "Abrir enlace externo" : "Ver más información"}
-                                </span>
-                            </div>
-                        </a>
+                    <li class="h-full">
+                        <article class="h-full">
+                            <a
+                                class="group flex h-full items-center gap-4 rounded-2xl border border-brand-black/10 px-4 py-2 shadow-sm bg-brand-pearl/80 dark:bg-brand-black/50 group-hover:bg-brand-red/15 dark:group-hover:bg-brand-red/40 transition hover:scale-105 bg-gradient-to-r from-brand-black/10 via-transparent to-transparent dark:from-brand-pearl/20 hover:via-brand-black/5 dark:hover:via-brand-pearl/10"
+                                href={link.href}
+                                target={link.external ? "_blank" : undefined}
+                                rel={link.external ? "noopener" : undefined}
+                            >
+                                <div class="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-brand-black/10 dark:bg-brand-pearl/50 bg-brand-pearl text-brand-black/80 dark:border-brand-pearl/20 dark:text-brand-pearl/80">
+                                    <img
+                                        src={link.img}
+                                        alt={link.title}
+                                        loading="lazy"
+                                        class="h-full w-full object-cover"
+                                    />
+                                </div>
+                                <div class="flex-1 h-full flex flex-col items-start">
+                                    <div class="w-full flex flex-row justify-start items-center">
+
+                                        <h3 class="  text-lg font-medium text-brand-black group-hover:text-brand-black dark:text-brand-white dark:group-hover:text-brand-pearl">
+                                            {link.title}
+                                        </h3>
+                                        {link.isNew && (
+                                            <span class="ml-2 h-fit inline-flex items-center rounded-xl  bg-brand-red/80 px-2 py-1 text-[0.5rem] font-medium text-white">
+                                                NUEVO
+                                            </span>
+                                        )}
+                                    </div>
+                                    <p class="mt-1 text-xs text-brand-black/60 dark:text-brand-pearl/80 text-pretty">
+                                        {link.description}
+                                    </p>
+                                </div>
+                            </a>
+                        </article>
                     </li>
                 );
             })}
@@ -108,7 +126,7 @@ const rrss = [
                             >
                                 <span class="flex flex-col justify-between items-center hover:scale-110 transition-transform duration-300 h-20">
                                     <Icon size="42" title={link.title} />
-                                    <span class="text-sm text-slate-200 group-hover:text-slate-300">{link.title}</span>
+                                    <span class="text-sm text-brand-black/60 group-hover:text-brand-black/80 dark:text-brand-pearl/70 dark:group-hover:text-brand-pearl">{link.title}</span>
                                 </span>
                         </a>    
                     );

@@ -17,17 +17,27 @@ import Slider from "../Slider.astro";
 			class="absolute inset-0 w-full h-full object-cover object-left-top opacity-35 -z-10"
 		/>
 	</picture>
-	<Logo class="w-36 md:w-40 lg:w-48 lg:mt-12" isDark />
+	<Logo class="logo-dark hidden w-36 md:w-40 lg:w-48 lg:mt-12" isDark />
+	<Logo class="logo-light w-36 md:w-40 lg:w-48 lg:mt-12" />
 	<div class="max-w-7xl mx-auto">
 		<h1
-			class="mx-auto my-0 mb-2 px-6 sm:px-20  text-3xl  sm:text-4xl lg:text-5xl font-bold text-[var(--color-red)] text-center font-garamond uppercase"
+			class="mx-auto my-0 mb-2 px-6 sm:px-20 text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-red text-center font-garamond uppercase"
 		>
 			Ciclo de Conferencias
 		</h1>
 		<span
-			class="px-2 text-md sm:text-l md-text-2xl mx-w-[30] lg:max-w-[60ch] text-pretty mx-auto text-center text-[var(--color-light)] font-lato block"
+			class="px-2 text-md sm:text-l md-text-2xl mx-w-[30] lg:max-w-[60ch] text-pretty mx-auto text-center text-brand-black dark:text-brand-pearl font-lato block"
 		>
 			LXXV Aniversario de la hechura de Nuestro Padre Jesús en su Santo Sepulcro
 		</span>
 	</div>
 </section>
+
+<style>
+	:global(html.dark) .logo-dark {
+		display: block;
+	}
+	:global(html.dark) .logo-light {
+		display: none;
+	}
+</style>

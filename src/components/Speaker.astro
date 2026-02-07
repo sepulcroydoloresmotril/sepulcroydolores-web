@@ -1,24 +1,24 @@
 ---
 const {img, name, title, description} = Astro.props
 ---
-<article class='relative flex flex-col items-center justify-center w-full p-[1px] transition-all rounded-md bg-gradient-to-b from-white/20 via-transparent to-transparent hover:via-white/10 group'>
-    <div class='bg-[#000214]/50 flex-1 group-hover:bg-[#cf1f21]/40 w-full px-6 py-10 rounded transition'>
+<article class='relative flex flex-col items-center justify-center w-full p-[1px] transition-all rounded-md bg-gradient-to-b from-brand-black/10 via-transparent to-transparent dark:from-brand-pearl/20 hover:via-brand-black/10 dark:hover:via-brand-pearl/10 group'>
+    <div class='bg-brand-pearl/80 dark:bg-brand-black/50 flex-1 group-hover:bg-brand-red/15 dark:group-hover:bg-brand-red/40 w-full px-6 py-10 rounded transition'>
         <figure class='flex items-center justify-center'>
             <picture>
                 <source srcset={`/img/speakers/${img}.webp`} type='image/webp' />
                 <img
-                    class='object-cover object-top w-40 h-40 transition bg-white rounded-full group-hover:scale-110'
+                    class='object-cover object-top w-40 h-40 transition bg-brand-pearl rounded-full group-hover:scale-110'
                     src={`/img/speakers/${img}.jpg`}
                     alt={`speaker: ${name}`}
                 />
             </picture>
         </figure>
-        <h3 class='mt-4 text-2xl font-bold text-center text-white'>
+        <h3 class='mt-4 text-2xl font-bold text-center text-brand-black dark:text-brand-pearl'>
             {name}
         </h3>
-        <h4 class='text-sm text-center text-slate-300 italic mb-6'>{title}</h4>
+        <h4 class='text-sm text-center text-brand-black/60 dark:text-brand-pearl/70 italic mb-6'>{title}</h4>
         {description.map((paragraph:string, i:any) => (
-            <p class='mt-4 text-lg text-left text-pretty max-w-[60ch] text-white'>{paragraph}</p>
+            <p class='mt-4 text-lg text-left text-pretty max-w-[60ch] text-brand-black/80 dark:text-brand-pearl/90'>{paragraph}</p>
         ))}
 
     </div>

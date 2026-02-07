@@ -4,6 +4,6 @@ const { class: className, ...props }= Astro.props
 
 ---
 
-<a {...props} class:list={["underline text-[var(--color-light)] hover:text-[var(--color-red)]", className]}>
+<a {...props} class:list={["underline text-brand-black hover:text-brand-red dark:text-brand-pearl", className]}>
   <slot />
 </a>
