@@ -4,8 +4,7 @@ import preact from "@astrojs/preact";
 
 import vercel from "@astrojs/vercel/serverless";
 
-const googleForm = process.env.PUBLIC_GOOGLE_FORM_URL;
-
+const googleForm = process.env.PUBLIC_GOOGLE_FORM_URL || 'https://forms.gle/QCCk892dLgmVCNKr5';
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,7 +14,7 @@ export default defineConfig({
       destination: '/links'
     },
     '/formulario': {
-      destination: googleForm || 'https://forms.gle/2Zt3n9mLh7sHj5cM8',
+      destination: googleForm ,
       status: 302,
     },
   },
