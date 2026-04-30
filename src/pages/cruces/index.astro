@@ -1,11 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-
-
-// Precios definidos
 const prices = [1, 1.5, 2, 2.5, 3, 4, 5, 8];
-
-// Definimos los colores y estilos exactos de tu web
 ---
 
 <Layout
@@ -62,7 +57,6 @@ const prices = [1, 1.5, 2, 2.5, 3, 4, 5, 8];
                 </ul>
             </div>
 
-            <!-- Panel de Resultados (Columna lateral o inferior) -->
             <div class="h-fit">
                 <div class="rounded-3xl border-2 border-brand-red/20 p-8 pt-4 bg-brand-pearl/90 dark:bg-brand-black/80 shadow-xl sticky top-40">
                     <div class="text-center space-y-3">
@@ -97,10 +91,8 @@ const prices = [1, 1.5, 2, 2.5, 3, 4, 5, 8];
 </Layout>
 
 <script>
-    // Usamos TypeScript para la lógica
-    const PRICES: number[] = [1, 1.5, 2, 2.5, 3, 5, 8];
+    const PRICES: number[] = [1, 1.5, 2, 2.5, 3, 4, 5, 8];
 
-    // Elementos del DOM
     const currentTotalEl = document.getElementById('current-total') as HTMLHeadingElement;
     const dailyTotalEl = document.getElementById('daily-total') as HTMLHeadingElement;
     const dateDisplay = document.getElementById('date-display') as HTMLParagraphElement;
@@ -110,7 +102,6 @@ const prices = [1, 1.5, 2, 2.5, 3, 4, 5, 8];
     const formatMoney = (n: number) => n.toLocaleString('es-ES', { minimumFractionDigits: 2 }) + ' €';
     const getTodayKey = () => new Date().toLocaleDateString('es-ES');
 
-    // Inicialización de LocalStorage
     let dailyAccumulated = 0;
 
     function init() {
@@ -119,7 +110,6 @@ const prices = [1, 1.5, 2, 2.5, 3, 4, 5, 8];
         const savedTotal = localStorage.getItem('ticket_daily_total');
 
         if (savedDate !== today) {
-            // Es un nuevo día, resetear
             localStorage.setItem('ticket_date', today);
             localStorage.setItem('ticket_daily_total', '0');
             dailyAccumulated = 0;
@@ -131,7 +121,6 @@ const prices = [1, 1.5, 2, 2.5, 3, 4, 5, 8];
         dailyTotalEl.textContent = formatMoney(dailyAccumulated);
     }
 
-    // Lógica de botones +/-
     document.querySelectorAll('.btn-qty').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const target = e.currentTarget as HTMLButtonElement;
@@ -169,15 +158,12 @@ const prices = [1, 1.5, 2, 2.5, 3, 4, 5, 8];
 
         if (currentTotal === 0) return;
 
-        // Actualizar acumulado
         dailyAccumulated += currentTotal;
         localStorage.setItem('ticket_daily_total', dailyAccumulated.toString());
         
-        // Actualizar UI
         dailyTotalEl.textContent = formatMoney(dailyAccumulated);
         currentTotalEl.textContent = formatMoney(0);
         
-        // Feedback visual
         btnCalculate.textContent = "¡Venta Guardada!";
         setTimeout(() => btnCalculate.textContent = "Cobrar y Guardar", 1500);
     });
@@ -193,7 +179,6 @@ const prices = [1, 1.5, 2, 2.5, 3, 4, 5, 8];
 </script>
 
 <style>
-    /* Ocultar flechas del input number */
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {
         -webkit-appearance: none;
