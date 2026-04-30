@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import { fileURLToPath } from 'node:url';
 import tailwind from "@astrojs/tailwind";
 import preact from "@astrojs/preact";
 
@@ -19,6 +20,13 @@ export default defineConfig({
     },
   },
   integrations: [tailwind(), preact()],
+  vite: {
+    resolve: {
+      alias: {
+        "@": fileURLToPath(new URL("./src", import.meta.url)),
+      },
+    },
+  },
   output: "server",
   adapter: vercel({
     webAnalytics: {

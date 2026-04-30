@@ -1,0 +1,205 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+
+// Precios definidos
+const prices = [1, 1.5, 2, 2.5, 3, 5, 8];
+
+// Definimos los colores y estilos exactos de tu web
+---
+
+<Layout
+    title="Calculadora de Tickets - Cofradía del Santo Sepulcro y Nuestra Señora de los Dolores Motril" 
+    description="Herramienta interna para el cálculo de venta de tickets."
+    path="/calculadora"
+    header
+    keywords="cruces calculadora tickets venta cofradía sepulcro dolores motril"
+>
+    <main class="mx-auto max-w-6xl px-4 py-10 pt-0 sm:px-6 lg:px-8 lg:py-1 mt-20">
+        <h1 class="text-2xl font-bold tracking-tight text-brand-red font-garamond uppercase sm:text-4xl text-center">
+            Calculadora de Tickets
+        </h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-0">
+            <!-- Grid de Selección de Tickets (2 columnas en móvil/tablet) -->
+            <div class="md:col-span-2">
+                <ul class="grid grid-cols-2 gap-1">
+                    {prices.map((price) => (
+                        <li class="flex flex-col items-center justify-center p-6 rounded-3xl border border-brand-black/10 bg-brand-pearl/80 dark:bg-brand-black/50 shadow-sm transition hover:border-brand-red/30">
+                            <!-- Cuadrado con el importe -->
+                            <div class="flex h-10 w-full shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-brand-black/10 dark:bg-brand-pearl/50 bg-brand-pearl text-brand-black font-garamond text-2xl font-bold mb-3 shadow-inner">
+                                {price.toString().replace('.', ',')}€
+                            </div>
+                            
+                            <!-- Controles debajo -->
+                            <div class="flex items-center gap-4">
+                                <button 
+                                    type="button" 
+                                    class="btn-qty minus w-10 h-10 rounded-full border-2 border-brand-red/50 text-brand-red flex items-center justify-center hover:bg-brand-red hover:text-white transition-all active:scale-90"
+                                    data-price={price}
+                                >
+                                    <span class="text-2xl font-bold">-</span>
+                                </button>
+                                
+                                <input 
+                                    type="number" 
+                                    id={`qty-${price}`} 
+                                    value="0" 
+                                    class="qty-input w-8 text-center bg-transparent font-bold text-xl text-brand-black dark:text-brand-white border-none focus:ring-0" 
+                                    readonly
+                                />
+                                
+                                <button 
+                                    type="button" 
+                                    class="btn-qty plus w-10 h-10 rounded-full border-2 border-brand-red text-brand-red flex items-center justify-center hover:bg-brand-red hover:text-white transition-all active:scale-90"
+                                    data-price={price}
+                                >
+                                    <span class="text-2xl font-bold">+</span>
+                                </button>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+
+            <!-- Panel de Resultados (Columna lateral o inferior) -->
+            <div class="h-fit">
+                <div class="rounded-3xl border-2 border-brand-red/20 p-8 pt-4 bg-brand-pearl/90 dark:bg-brand-black/80 shadow-xl sticky top-40">
+                    <div class="text-center space-y-1">
+                        <div>
+                            <p class="text-brand-black/40 dark:text-brand-pearl/40 uppercase text-xs tracking-tighter font-bold mb-1">Venta Actual</p>
+                            <h2 id="current-total" class="text-5xl font-bold text-brand-black dark:text-brand-white font-garamond">0,00 €</h2>
+                        </div>
+
+                        <div class="space-y-3">
+                            <button id="btn-calculate" class="w-full py-5 bg-brand-red text-white rounded-2xl font-bold uppercase tracking-widest hover:brightness-110 transition-all shadow-lg active:scale-95">
+                                Cobrar Venta
+                            </button>
+                            <button id="btn-reset-form" class="w-full py-2 text-brand-black/40 dark:text-brand-pearl/40 uppercase text-[10px] font-bold hover:text-brand-red transition-colors">
+                                Limpiar Selección
+                            </button>
+                        </div>
+
+                        <div class="pt-8 border-t border-brand-black/5 dark:border-brand-pearl/10 text-left">
+                            <div class="flex justify-between items-end mb-2">
+                                <span class="text-brand-red font-bold uppercase text-[10px] tracking-widest">Acumulado Hoy</span>
+                                <span id="date-display" class="text-[9px] text-brand-black/30 dark:text-brand-pearl/30 font-mono"></span>
+                            </div>
+                            <div class="bg-brand-black/5 dark:bg-brand-pearl/5 p-5 rounded-2xl border border-brand-black/5">
+                                <h3 id="daily-total" class="text-3xl font-bold text-brand-black dark:text-brand-white font-garamond">0,00 €</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</Layout>
+
+<script>
+    // Usamos TypeScript para la lógica
+    const PRICES: number[] = [1, 1.5, 2, 2.5, 3, 5, 8];
+
+    // Elementos del DOM
+    const currentTotalEl = document.getElementById('current-total') as HTMLHeadingElement;
+    const dailyTotalEl = document.getElementById('daily-total') as HTMLHeadingElement;
+    const dateDisplay = document.getElementById('date-display') as HTMLParagraphElement;
+    const btnCalculate = document.getElementById('btn-calculate') as HTMLButtonElement;
+    const btnReset = document.getElementById('btn-reset-form') as HTMLButtonElement;
+
+    const formatMoney = (n: number) => n.toLocaleString('es-ES', { minimumFractionDigits: 2 }) + ' €';
+    const getTodayKey = () => new Date().toLocaleDateString('es-ES');
+
+    // Inicialización de LocalStorage
+    let dailyAccumulated = 0;
+
+    function init() {
+        const today = getTodayKey();
+        const savedDate = localStorage.getItem('ticket_date');
+        const savedTotal = localStorage.getItem('ticket_daily_total');
+
+        if (savedDate !== today) {
+            // Es un nuevo día, resetear
+            localStorage.setItem('ticket_date', today);
+            localStorage.setItem('ticket_daily_total', '0');
+            dailyAccumulated = 0;
+        } else {
+            dailyAccumulated = parseFloat(savedTotal || '0');
+        }
+
+        dateDisplay.textContent = `Sesión iniciada el ${today}`;
+        dailyTotalEl.textContent = formatMoney(dailyAccumulated);
+    }
+
+    // Lógica de botones +/-
+    document.querySelectorAll('.btn-qty').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const target = e.currentTarget as HTMLButtonElement;
+            const price = target.dataset.price;
+            const input = document.getElementById(`qty-${price}`) as HTMLInputElement;
+            let val = parseInt(input.value);
+
+            if (target.classList.contains('plus')) {
+                val++;
+            } else if (val > 0) {
+                val--;
+            }
+            
+            input.value = val.toString();
+            updateCurrentTotal();
+        });
+    });
+
+    function updateCurrentTotal() {
+        let total = 0;
+        PRICES.forEach(p => {
+            const qty = parseInt((document.getElementById(`qty-${p}`) as HTMLInputElement).value);
+            total += p * qty;
+        });
+        currentTotalEl.textContent = formatMoney(total);
+    }
+
+    btnCalculate.addEventListener('click', () => {
+        let currentTotal = 0;
+        PRICES.forEach(p => {
+            const input = document.getElementById(`qty-${p}`) as HTMLInputElement;
+            currentTotal += p * parseInt(input.value);
+            input.value = "0"; // Resetear inputs tras cobrar
+        });
+
+        if (currentTotal === 0) return;
+
+        // Actualizar acumulado
+        dailyAccumulated += currentTotal;
+        localStorage.setItem('ticket_daily_total', dailyAccumulated.toString());
+        
+        // Actualizar UI
+        dailyTotalEl.textContent = formatMoney(dailyAccumulated);
+        currentTotalEl.textContent = formatMoney(0);
+        
+        // Feedback visual
+        btnCalculate.textContent = "¡Venta Guardada!";
+        setTimeout(() => btnCalculate.textContent = "Cobrar y Guardar", 1500);
+    });
+
+    btnReset.addEventListener('click', () => {
+        PRICES.forEach(p => {
+            (document.getElementById(`qty-${p}`) as HTMLInputElement).value = "0";
+        });
+        updateCurrentTotal();
+    });
+
+    init();
+</script>
+
+<style>
+    /* Ocultar flechas del input number */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+</style>
