@@ -16,7 +16,7 @@ const prices = [1, 1.5, 2, 2.5, 3, 5, 8];
     keywords="cruces calculadora tickets venta cofradía sepulcro dolores motril"
 >
     <main class="mx-auto max-w-6xl px-4 py-10 pt-0 sm:px-6 lg:px-8 lg:py-1 mt-20">
-        <h1 class="py-3 text-2xl font-bold tracking-tight text-brand-red font-garamond uppercase sm:text-4xl text-center">
+        <h1 class="py-2 text-2xl font-bold tracking-tight text-brand-red font-garamond uppercase sm:text-4xl text-center">
             Calculadora de Tickets
         </h1>
 
@@ -25,7 +25,7 @@ const prices = [1, 1.5, 2, 2.5, 3, 5, 8];
             <div class="md:col-span-2">
                 <ul class="grid grid-cols-2 gap-1">
                     {prices.map((price) => (
-                        <li class="flex flex-col items-center justify-center p-6 py-3 rounded-3xl border border-brand-black/10 bg-brand-pearl/80 dark:bg-brand-black/50 shadow-sm transition hover:border-brand-red/30">
+                        <li class="flex flex-col items-center justify-center p-6 py-2 rounded-3xl border border-brand-black/10 bg-brand-pearl/80 dark:bg-brand-black/50 shadow-sm transition hover:border-brand-red/30">
                             <!-- Cuadrado con el importe -->
                             <div class="flex h-10 w-full shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-brand-black/10 dark:bg-brand-pearl/50 bg-brand-pearl text-brand-black font-garamond text-2xl font-bold mb-3 shadow-inner">
                                 {price.toString().replace('.', ',')}€
