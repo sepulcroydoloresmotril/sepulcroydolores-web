@@ -1,16 +1,17 @@
 ---
 import Logo from "./Logo.astro";
+const {spacetop = false} = Astro.props
 ---
 
-<header id="header-nav" class="fixed top-0 w-full px-6 py-6 md:py-1 z-50 h-[100px]">
+<header id="header-nav" class="fixed top-0 w-full px-6 py-2 sm:py-1 z-50 h-fit">
 	<div class="max-w-7xl mx-auto flex items-center gap-4">
 		<a href="/" class="flex items-center justify-start gap-1 sm:gap-1">
-			<Logo class="logo-dark hidden w-16 h-16 sm:w-24 sm:h-auto" isDark />
-			<Logo class="logo-light w-16 h-16 sm:w-24 sm:h-auto" />
+			<Logo class="logo-dark hidden w-16 h-16 sm:w-24 sm:h-auto object-cover" isDark />
+			<Logo class="logo-light w-16 h-16 sm:w-24 sm:h-auto object-cover" />
 			<span
-				class="container w-[40ch] font-garamond uppercase text-lg text-brand-black dark:text-brand-pearl leading-1"
-				>Cofradía del Santo Sepulcro y Nuestra Señora de los Dolores</span
-			>
+				class="container w-[40ch] font-garamond uppercase text-[0.75rem] sm:text-base md:text-lg text-brand-black dark:text-brand-pearl leading-1">
+				Cofradía del Santo Sepulcro y Nuestra Señora de los Dolores
+			</span>
 		</a>
 
 		<button
@@ -23,6 +24,7 @@ import Logo from "./Logo.astro";
 		</button>
 	</div>
 </header>
+{spacetop ? <div class="mt-[100px]"/> : null}
 
 <style>
 	#header-nav {
@@ -43,6 +45,8 @@ import Logo from "./Logo.astro";
 
 	:global(html.dark) #header-nav {
 		animation: blur-dark linear both;
+		animation-timeline: scroll();
+		animation-range: 0 300px;
 	}
 
 	@keyframes blur-dark {
