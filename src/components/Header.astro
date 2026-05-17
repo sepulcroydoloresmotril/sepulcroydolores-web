@@ -3,28 +3,27 @@ import Logo from "./Logo.astro";
 const {spacetop = false} = Astro.props
 ---
 
-<header id="header-nav" class="fixed top-0 w-full px-6 py-2 sm:py-1 z-50 h-fit">
+<header id="header-nav" class="fixed top-0 w-full px-6 py-3 z-50 h-fit">
 	<div class="max-w-7xl mx-auto flex items-center gap-4">
-		<a href="/" class="flex items-center justify-start gap-1 sm:gap-1">
-			<Logo class="logo-dark hidden w-16 h-16 sm:w-24 sm:h-auto object-cover" isDark />
-			<Logo class="logo-light w-16 h-16 sm:w-24 sm:h-auto object-cover" />
-			<span
-				class="container w-[40ch] font-garamond uppercase text-[0.75rem] sm:text-base md:text-lg text-brand-black dark:text-brand-pearl leading-1">
-				Cofradía del Santo Sepulcro y Nuestra Señora de los Dolores
+		<a href="/" class="flex items-center justify-start gap-3">
+			<Logo class="logo-dark hidden w-12 h-12 sm:w-16 sm:h-16 object-cover flex-shrink-0" isDark />
+			<Logo class="logo-light w-12 h-12 sm:w-16 sm:h-16 object-cover flex-shrink-0" />
+			<span class="font-garamond uppercase text-[0.7rem] sm:text-sm leading-snug text-brand-black dark:text-brand-pearl max-w-[24ch] sm:max-w-[32ch]">
+				Cofradía del Santo Sepulcro<br class="hidden sm:block" /> y Nuestra Señora de los Dolores
 			</span>
 		</a>
 
 		<button
 			id="theme-toggle"
 			type="button"
-			class="ml-auto rounded-full border border-brand-black/30 px-4 py-2 text-sm uppercase tracking-wide text-brand-black hover:border-brand-black/60 dark:border-brand-pearl/40 dark:text-brand-pearl dark:hover:border-brand-pearl/70"
+			class="ml-auto rounded-sm border border-brand-black/25 px-3 py-1.5 text-xs uppercase tracking-widest text-brand-black/70 hover:border-brand-red hover:text-brand-red dark:border-brand-pearl/30 dark:text-brand-pearl/70 dark:hover:border-brand-red dark:hover:text-brand-red transition-colors duration-200"
 			aria-pressed="false"
 		>
 			Dark
 		</button>
 	</div>
 </header>
-{spacetop ? <div class="mt-[100px]"/> : null}
+{spacetop ? <div class="mt-[80px]"/> : null}
 
 <style>
 	#header-nav {
@@ -36,10 +35,10 @@ const {spacetop = false} = Astro.props
 	@keyframes blur {
 		to {
 			box-shadow:
-				0px 5px 50px -5px rgba(0, 0, 0, 0.1),
-				0px 0px 0 1px rgba(0, 0, 0, 0.2);
-			background: rgba(244, 242, 239, 0.75);
-			backdrop-filter: blur(10px);
+				0px 1px 0px 0px rgba(0, 0, 0, 0.08),
+				0px 4px 24px -4px rgba(0, 0, 0, 0.06);
+			background: rgba(244, 242, 239, 0.88);
+			backdrop-filter: blur(12px);
 		}
 	}
 
@@ -52,10 +51,10 @@ const {spacetop = false} = Astro.props
 	@keyframes blur-dark {
 		to {
 			box-shadow:
-				0px 5px 50px -5px rgba(0, 0, 0, 0.15),
-				0px 0px 0 1px rgba(255, 255, 255, 0.15);
-			background: rgba(25, 25, 25, 0.6);
-			backdrop-filter: blur(10px);
+				0px 1px 0px 0px rgba(255, 255, 255, 0.06),
+				0px 4px 24px -4px rgba(0, 0, 0, 0.3);
+			background: rgba(25, 25, 25, 0.85);
+			backdrop-filter: blur(12px);
 		}
 	}
 

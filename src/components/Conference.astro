@@ -4,73 +4,81 @@ import IconClock from "./icons/IconClock.astro"
 import IconMap from "./icons/IconMap.astro"
 
 const {title, description, author, author_img, date, time, image, key} = Astro.props
-
-
 ---
 
+<article class="group w-full overflow-hidden border border-brand-black/10 dark:border-brand-pearl/10 hover:border-brand-gold/40 dark:hover:border-brand-gold/30 transition-all duration-500 hover:shadow-xl bg-brand-pearl dark:bg-brand-black">
 
-<article 
-    class='relative  lg:grid lg:grid-cols-4  items-center justify-center w-full p-[1px] transition-all rounded-md  group hover:scale-105'
->
-    <div 
-        id="card-image"
-        class="conference-bg lg:col-span-1 h-96 lg:h-full w-full bg-brand-black/10 dark:bg-brand-pearl/10" 
-    >
-    </div>
-    <div 
-        id="card-content" 
-        class='bg-brand-pearl/80 dark:bg-brand-black/50 flex-1 lg:col-span-3 group-hover:bg-brand-red/15 dark:group-hover:bg-brand-red/40 px-6 py-6 rounded transition bg-gradient-to-r from-brand-black/10 via-transparent to-transparent dark:from-brand-pearl/20 hover:via-brand-black/5 dark:hover:via-brand-pearl/10'
-    >
-        <header  id="card-title"
-            class="mb-5 flex flex-row items-start gap-2"
-        >
-            <h3 class="text-xl sm:text-3xl font-bold text-left text-brand-red font-roman group-hover:text-brand-black dark:group-hover:text-brand-pearl">{title}</h3>    
-            <figure  class=' min-w-16'>
-                    
-                <picture>
-                    <source srcset={`/img/speakers/${author_img}.webp`} type="image/webp" />
-                    <img class="object-cover object-top w-14 h-14 rounded-full" src={`/img/speakers/${author_img}.jpg`} alt={author} title={author}>
-                </picture>
-            </figure>
-                
-        </header>
-        <div id="card-body" class="w-full flex flex-col gap-y-6">
-            {description.map((paragraph:string, index:any) => (
-                <p class='text-lg sm:text-xl text-left max-w-[70ch] text-pretty text-brand-black/70 dark:text-brand-pearl/80'>{paragraph}</p>
-            ))}
-        </div>
-        <footer id="card-footer" class="grid grid-cols-1 lg:grid-cols-2 items-center justify-between mt-5 gap-6">
-            <div class="flex flex-row items-center gap-4">
-                <IconCalendar size="32" class="text-brand-black dark:text-brand-pearl"/>
-                <span class="text-xl text-left text-brand-black dark:text-brand-pearl">{date}</span>
-            </div>
-            <div class="flex flex-row items-center gap-4">
-                <IconClock size="32" class="text-brand-black dark:text-brand-pearl"/>
-                <span class="text-xl text-left text-brand-black dark:text-brand-pearl">{time}</span>
-            </div>
-            <div class="flex flex-row items-center gap-4">
-                <IconMap size="32" class="text-brand-black dark:text-brand-pearl"/>
-                <span class="text-xl text-left text-brand-black dark:text-brand-pearl">Centro de Arte José Hernández Quero</span>
-            </div>
-    </div>
+	<div class="grid grid-cols-1 lg:grid-cols-[2fr_5fr]">
+
+		<!-- Image panel -->
+		<div class="relative h-60 lg:h-auto overflow-hidden">
+			<div class="conference-bg absolute inset-0 group-hover:scale-105 transition-transform duration-700 ease-out"></div>
+			<div class="absolute inset-0 bg-gradient-to-t from-brand-black/40 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-brand-black/15 dark:lg:to-brand-black/30"></div>
+		</div>
+
+		<!-- Content -->
+		<div class="px-8 py-8 lg:py-10 flex flex-col">
+
+			<!-- Red accent bar that grows on hover -->
+			<div class="w-6 h-0.5 bg-brand-red mb-6 group-hover:w-14 transition-all duration-500 ease-out"></div>
+
+			<!-- Title + speaker avatar -->
+			<div class="flex items-start justify-between gap-5 mb-6">
+				<h3 class="text-2xl sm:text-3xl font-bold text-brand-red font-roman leading-tight group-hover:text-brand-black dark:group-hover:text-brand-pearl transition-colors duration-300">
+					{title}
+				</h3>
+				<picture class="flex-shrink-0">
+					<source srcset={`/img/speakers/${author_img}.webp`} type="image/webp" />
+					<img
+						class="w-11 h-11 rounded-full border border-brand-gold/40 object-cover object-top"
+						src={`/img/speakers/${author_img}.jpg`}
+						alt={author}
+						title={author}
+					/>
+				</picture>
+			</div>
+
+			<!-- Speaker name -->
+			<p class="text-xs uppercase tracking-widest text-brand-gold font-lato mb-5">{author}</p>
+
+			<!-- Description -->
+			<div class="space-y-4 flex-1">
+				{description.map((paragraph: string) => (
+					<p class="text-base sm:text-lg text-brand-black/68 dark:text-brand-pearl/75 leading-7 [text-wrap:pretty] max-w-[65ch]">
+						{paragraph}
+					</p>
+				))}
+			</div>
+
+			<!-- Meta footer -->
+			<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-8 pt-5 border-t border-brand-black/10 dark:border-brand-pearl/10">
+				<div class="flex items-center gap-2.5 text-brand-black/55 dark:text-brand-pearl/55">
+					<IconCalendar size="16" />
+					<span class="text-sm">{date}</span>
+				</div>
+				<div class="flex items-center gap-2.5 text-brand-black/55 dark:text-brand-pearl/55">
+					<IconClock size="16" />
+					<span class="text-sm">{time}</span>
+				</div>
+				<div class="flex items-center gap-2.5 text-brand-black/55 dark:text-brand-pearl/55">
+					<IconMap size="16" />
+					<span class="text-sm">José Hernández Quero</span>
+				</div>
+			</div>
+
+		</div>
+	</div>
 </article>
 
-
-<style 
-    define:vars={{
-        "path-jpg": `url("/img/conferences/${image?.name}.jpg")`,
-        "path-webp": `url("/img/conferences/${image.name}.webp")`,
-    }}
+<style
+	define:vars={{
+		"path-jpg": `url("/img/conferences/${image?.name}.jpg")`,
+		"path-webp": `url("/img/conferences/${image.name}.webp")`,
+	}}
 >
-    .conference-bg {
-        background-color: aqua !important;
-        background-image: var(--path-jpg);
-
-        /* @supports (background-image: var(--path-webp)) {
-            background-image: var(--path-webp);
-        }; */
-
-        background-size: cover;
-        background-position: center;
-    }
+	.conference-bg {
+		background-image: var(--path-jpg);
+		background-size: cover;
+		background-position: center;
+	}
 </style>

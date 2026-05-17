@@ -1,10 +1,5 @@
 ---
 import SectionTitle from "../SectionTitle.astro";
-import IconInstagram from "../icons/IconInstagram.astro";
-import IconFacebook from "../icons/IconFacebook.astro";
-import IconCalendar from "../icons/IconCalendar.astro";
-import IconEmail from "../icons/IconEmail.astro";
-import IconClock from "../icons/IconClock.astro";
 import IconMap from "../icons/IconMap.astro";
 import Link from "../Link.astro";
 import IconWeb from "../icons/IconWeb.astro";
@@ -14,39 +9,57 @@ const PUBLIC_MOTRIL_MAPS_URL = "https://www.google.com/maps/place//data=!4m2!3m1
 const GOOGLE_MAPS_EMBED_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.0922319055967!2d-3.524018323732191!3d36.744357170844694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7190963bb7c125%3A0xce098db06093a660!2sCentro%20de%20Arte%20Jos%C3%A9%20Hern%C3%A1ndez%20Quero!5e0!3m2!1ses!2ses!4v1705340530872!5m2!1ses!2ses";
 ---
 
-<section id="Location" class="max-w-7xl mx-auto my-24 px-6 [1025px]:px-0">
+<section id="Location" class="max-w-7xl mx-auto my-20 px-6">
 	<SectionTitle>Localización</SectionTitle>
-	<div class="grid grid-cols-1 sm:grid-cols-2 gap-10 ">
-		<iframe
-            class="w-full h-full "
-			src={GOOGLE_MAPS_EMBED_URL}
-			
-			style="border:0;"
-			allowfullscreen=""
-			loading="lazy"
-			referrerpolicy="no-referrer-when-downgrade"
-        />
-        <div class="py-1">
-            <h3
-                class="text-5xl font-bold text-left"
-            >Centro de Arte José Hernández Quero</h3>
-            <span
-                class=" text-3xl font-thin text-left block text-brand-black/60 dark:text-brand-pearl/70"
-            >Palacio Ruiz de Castro</span>
-            <p class="mt-10 mb-7">
-                El Centro de Arte José Hernández Quero, Palacio Ruíz de Castro en la Ciudad de Motril es una de las grandes apuestas por mantener el patrimonio cultural local y por dar a conocer la obra de uno de los artistas granadinos más destacados de la segunda mitad del siglo XX.
-            </p>
-            <div class="text-brand-black dark:text-brand-pearl w-full flex flex-col gap-3 pb-4 items-end">
-                <span class="flex flex-row gap-3 font-semibold items-stretch">
-                    <Link class="text-xl text-brand-black/70 hover:text-brand-red dark:text-brand-pearl/80" target="_blank" href={PUBLIC_MOTRIL_PLACE_URL}>Página web</Link>
-                    <IconWeb size="32" />                
-                </span>
-                <span class="flex flex-row gap-3 items-stretch font-semibold">
-                    <Link class="text-xl text-brand-black/70 hover:text-brand-red dark:text-brand-pearl/80" target="_blank" href={PUBLIC_MOTRIL_MAPS_URL}>Calle Ruiz, 2 - 18600 Motril, Granada</Link>
-                    <IconMap size="32" />                
-                </span>
 
-            </div>
-        </div>
+	<div class="grid grid-cols-1 lg:grid-cols-2 overflow-hidden border border-brand-black/10 dark:border-brand-pearl/10 mt-4">
+
+		<!-- Map -->
+		<div class="relative h-72 lg:h-auto min-h-80 overflow-hidden">
+			<iframe
+				class="absolute inset-0 w-full h-full"
+				src={GOOGLE_MAPS_EMBED_URL}
+				style="border:0;"
+				allowfullscreen=""
+				loading="lazy"
+				referrerpolicy="no-referrer-when-downgrade"
+			/>
+		</div>
+
+		<!-- Info -->
+		<div class="bg-brand-pearl dark:bg-brand-black px-10 py-12 flex flex-col justify-center border-t border-brand-black/10 dark:border-brand-pearl/10 lg:border-t-0 lg:border-l">
+
+			<div class="w-8 h-0.5 bg-brand-gold mb-6"></div>
+
+			<h3 class="text-3xl lg:text-4xl font-bold text-brand-black dark:text-brand-pearl font-garamond leading-tight">
+				Centro de Arte<br/>José Hernández Quero
+			</h3>
+			<span class="text-base font-light text-brand-gold mt-2 mb-6 tracking-wide block italic">
+				Palacio Ruiz de Castro
+			</span>
+
+			<p class="text-base text-brand-black/62 dark:text-brand-pearl/65 leading-7 max-w-[48ch]">
+				El Centro de Arte José Hernández Quero, Palacio Ruíz de Castro en Motril, es una de las grandes apuestas por mantener el patrimonio cultural local y dar a conocer la obra de uno de los artistas granadinos más destacados del siglo XX.
+			</p>
+
+			<div class="flex flex-col gap-3 mt-8 pt-6 border-t border-brand-black/10 dark:border-brand-pearl/10">
+				<Link
+					class="flex items-center gap-3 text-brand-black/60 hover:text-brand-red dark:text-brand-pearl/60 dark:hover:text-brand-red transition-colors duration-200 group"
+					target="_blank"
+					href={PUBLIC_MOTRIL_PLACE_URL}
+				>
+					<IconWeb size="16" class="flex-shrink-0" />
+					<span class="text-sm group-hover:underline underline-offset-2">Página web oficial</span>
+				</Link>
+				<Link
+					class="flex items-center gap-3 text-brand-black/60 hover:text-brand-red dark:text-brand-pearl/60 dark:hover:text-brand-red transition-colors duration-200 group"
+					target="_blank"
+					href={PUBLIC_MOTRIL_MAPS_URL}
+				>
+					<IconMap size="16" class="flex-shrink-0" />
+					<span class="text-sm group-hover:underline underline-offset-2">Calle Ruiz, 2 — 18600 Motril, Granada</span>
+				</Link>
+			</div>
+		</div>
 	</div>
 </section>

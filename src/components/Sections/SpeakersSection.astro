@@ -4,21 +4,16 @@ import Speaker from "../Speaker.astro";
 import SPEAKERS from "../../constants/speakers.js"
 ---
 
-<section id="speakers" class="max-w-7xl mx-5 xl:mx-auto my-24 mt-12 xl:px-6 [1025px]:px-0">
-    <SectionTitle>Ponentes</SectionTitle>
-    <p
-        class="max-w-xl mx-auto text-xl text-brand-black/70 dark:text-brand-pearl/80 text-center [text-wrap:pretty] mt-0"
-    >
-        Personas relevantes y profesionales en la religiosidad popular, el arte
-        y la historia
-    </p>
-    <div
-        class="grid grid-cols-1 my-16 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8"
-    >
-        {
-            SPEAKERS.map((speaker, id) => (
-                <Speaker key={`spk-${id}`} {...speaker} id={id} />
-            ))
-        }
-    </div>
+<section id="speakers" class="max-w-7xl mx-auto my-20 px-6">
+	<SectionTitle>Ponentes</SectionTitle>
+	<p class="max-w-lg mx-auto text-base text-brand-black/55 dark:text-brand-pearl/55 text-center [text-wrap:pretty] font-lato tracking-wide uppercase text-xs mt-0 mb-12">
+		Personas relevantes y profesionales en la religiosidad popular, el arte y la historia
+	</p>
+	<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+		{
+			SPEAKERS.map((speaker, id) => (
+				<Speaker key={`spk-${id}`} {...speaker} id={id} />
+			))
+		}
+	</div>
 </section>

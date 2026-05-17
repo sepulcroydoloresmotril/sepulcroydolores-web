@@ -1,35 +1,48 @@
 ---
 import Logo from "../Logo.astro";
-import Slider from "../Slider.astro";
 ---
 
 <section
 	id="hero"
-	class="relative z-10 h-screen flex flex-col justify-center items-center gap-1 lg:gap-1"
+	class="relative z-10 h-screen flex flex-col justify-center items-center"
 >
-
-	<!-- <Slider /> -->
 	<picture>
 		<source srcset="/img/slider/slider1.webp" type="image/webp" />
 		<img
 			src="/img/slider/slider1.webp"
 			alt="Fotografía antigua de Nuestro Padre Jesús en su Santo Sepulcro"
-			class="absolute inset-0 w-full h-full object-cover object-left-top opacity-35 -z-10"
+			class="absolute inset-0 w-full h-full object-cover object-left-top opacity-20 dark:opacity-30 -z-10"
 		/>
 	</picture>
-	<Logo class="logo-dark hidden w-36 md:w-40 lg:w-48 lg:mt-12" isDark />
-	<Logo class="logo-light w-36 md:w-40 lg:w-48 lg:mt-12" />
-	<div class="max-w-7xl mx-auto">
-		<h1
-			class="mx-auto my-0 mb-2 px-6 sm:px-20 text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-red text-center font-garamond uppercase"
-		>
-			Ciclo de Conferencias
+
+	<!-- Gradient vignette -->
+	<div class="absolute inset-0 bg-gradient-to-b from-brand-pearl/30 via-transparent to-brand-pearl/50 dark:from-brand-black/50 dark:via-transparent dark:to-brand-black/70 -z-10 pointer-events-none"></div>
+
+	<div class="flex flex-col items-center gap-5 max-w-4xl mx-auto px-6 text-center">
+		<Logo class="logo-dark hidden w-20 md:w-28 lg:w-36" isDark />
+		<Logo class="logo-light w-20 md:w-28 lg:w-36" />
+
+		<!-- Gold ornamental rule -->
+		<div class="flex items-center gap-3 w-48 opacity-70">
+			<div class="flex-1 h-px bg-brand-gold"></div>
+			<svg class="text-brand-gold w-2.5 h-2.5 flex-shrink-0" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+				<path d="M8 0 L9.5 6.5 L16 8 L9.5 9.5 L8 16 L6.5 9.5 L0 8 L6.5 6.5 Z"/>
+			</svg>
+			<div class="flex-1 h-px bg-brand-gold"></div>
+		</div>
+
+		<h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-brand-red font-garamond uppercase tracking-wide leading-none">
+			Ciclo de<br/>Conferencias
 		</h1>
-		<span
-			class="px-2 text-md sm:text-l md-text-2xl mx-w-[30] lg:max-w-[60ch] text-pretty mx-auto text-center text-brand-black dark:text-brand-pearl font-lato block"
-		>
-			LXXV Aniversario de la hechura de Nuestro Padre Jesús en su Santo Sepulcro
-		</span>
+
+		<p class="text-xs sm:text-sm font-lato tracking-cofrade uppercase text-brand-black/55 dark:text-brand-pearl/55 max-w-[40ch]">
+			LXXV Aniversario de la hechura de<br/>Nuestro Padre Jesús en su Santo Sepulcro
+		</p>
+	</div>
+
+	<!-- Scroll indicator -->
+	<div class="absolute bottom-10 flex flex-col items-center gap-2 opacity-40">
+		<div class="w-px h-10 bg-brand-black dark:bg-brand-pearl scroll-line"></div>
 	</div>
 </section>
 
@@ -39,5 +52,15 @@ import Slider from "../Slider.astro";
 	}
 	:global(html.dark) .logo-light {
 		display: none;
+	}
+
+	.scroll-line {
+		animation: scrollPulse 2s ease-in-out infinite;
+		transform-origin: top;
+	}
+
+	@keyframes scrollPulse {
+		0%, 100% { transform: scaleY(0.3); opacity: 0.3; }
+		50%       { transform: scaleY(1);   opacity: 1;   }
 	}
 </style>

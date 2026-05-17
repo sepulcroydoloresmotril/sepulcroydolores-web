@@ -13,58 +13,48 @@ const {
 } = import.meta.env;
 ---
 
-<footer class="bg-brand-black/5 text-brand-black dark:bg-brand-black/30 dark:text-brand-pearl">
-	<div class="mx-auto w-full max-w-screen-xl p-4 px-6 py-6 lg:py-4">
-		<div class="sm:flex sm:justify-between items-center">
-			<div class="mb-6 flex flex-col md:mb-0">
-				<a
-					href={PUBLIC_SITE_URL}
-					class="mt-2 flex items-center justify-center"
-				>
-					
-					<picture>
-						<source srcset={'/img/escudo_blanco_nombre.webp'} type="image/webp" />
-						<img
-							class={`max-w-full aspect-square h-auto w-28`}
-							srcset={'/img/escudo_blanco_nombre.webp'}
-							src={'/img/escudo_blanco_nombre.png'}
-							alt="Ciclo de Conferencias - Cofradía del Santo Sepulcro y Ntra. Sra. de los Dolores (Motril)"
-						/>
-					</picture>
-				</a>
-			</div>
-			
-			<div id="rrss" class="text-[0.75rem] sm:text-lg mt-6 sm:mt-0 flex flex-col justify-center items-center sm:items-end gap-y-2">
-				<Link href={PUBLIC_FACEBOOK_URL} class="text-brand-black hover:text-brand-red dark:text-brand-pearl duration-300 flex flex-row sm:flex-row-reverse gap-x-2">
-					<>
-						<IconFacebook size="24" title="Facebook"/>
-						<span>CofradiaSepulcroyDoloresMotril</span>
-					</>
+<footer class="bg-brand-black/5 dark:bg-brand-black/40 text-brand-black dark:text-brand-pearl border-t border-brand-black/8 dark:border-brand-pearl/8">
+	<div class="mx-auto w-full max-w-7xl px-6 py-8 lg:py-10">
+		<div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-8">
+			<a href={PUBLIC_SITE_URL} class="flex items-center justify-center sm:justify-start">
+				<picture>
+					<source srcset={'/img/escudo_blanco_nombre.webp'} type="image/webp" />
+					<img
+						class="h-auto w-24 opacity-80 hover:opacity-100 transition-opacity"
+						srcset={'/img/escudo_blanco_nombre.webp'}
+						src={'/img/escudo_blanco_nombre.png'}
+						alt="Cofradía del Santo Sepulcro y Ntra. Sra. de los Dolores (Motril)"
+					/>
+				</picture>
+			</a>
+
+			<div id="rrss" class="flex flex-col items-center sm:items-end gap-2">
+				<Link href={PUBLIC_FACEBOOK_URL} class="flex items-center sm:flex-row-reverse gap-2 text-sm text-brand-black/60 hover:text-brand-red dark:text-brand-pearl/60 dark:hover:text-brand-red transition-colors duration-200">
+					<IconFacebook size="16" title="Facebook"/>
+					<span>CofradiaSepulcroyDoloresMotril</span>
 				</Link>
-					
-				<Link href={PUBLIC_INSTAGRAM_URL} class="text-brand-black hover:text-brand-red dark:text-brand-pearl duration-300 flex flex-row sm:flex-row-reverse gap-x-2">
-					<>
-						<IconInstagram size="24" title="Instagram"/>
-						<span>@cofradiasepulcroydoloresmotril</span>
-					</>
+				<Link href={PUBLIC_INSTAGRAM_URL} class="flex items-center sm:flex-row-reverse gap-2 text-sm text-brand-black/60 hover:text-brand-red dark:text-brand-pearl/60 dark:hover:text-brand-red transition-colors duration-200">
+					<IconInstagram size="16" title="Instagram"/>
+					<span>@cofradiasepulcroydoloresmotril</span>
 				</Link>
-					
-				<Link href={`mailto:${PUBLIC_EMAIL}`} class="text-brand-black hover:text-brand-red dark:text-brand-pearl duration-300 flex flex-row sm:flex-row-reverse gap-x-2">
-					<>	
-						<IconEmail size="24" title="Email" class="group-hover:text-brand-red"/>
-						<span>{PUBLIC_EMAIL}</span>
-					</>
+				<Link href={`mailto:${PUBLIC_EMAIL}`} class="flex items-center sm:flex-row-reverse gap-2 text-sm text-brand-black/60 hover:text-brand-red dark:text-brand-pearl/60 dark:hover:text-brand-red transition-colors duration-200">
+					<IconEmail size="16" title="Email" />
+					<span>{PUBLIC_EMAIL}</span>
 				</Link>
 			</div>
 		</div>
-		<hr class="my-4 mt-6 border-brand-black/20 dark:border-brand-pearl/40 sm:mx-auto lg:my-4 lg:mt-4" />
-		<div class="sm:flex sm:items-center sm:justify-between">
-			<span class="text-sm text-brand-black/70 dark:text-brand-pearl/70 sm:text-center">
-				© 2025 Cofradía del Santo Sepulcro y Nuestra Señora de los Dolores
-			</span>
-			<span class="text-sm text-brand-black/70 dark:text-brand-pearl/70 sm:text-center">
-				Motril - Granada
-			</span>
+
+		<div class="flex items-center gap-4 mt-8 mb-4">
+			<div class="flex-1 h-px bg-brand-black/10 dark:bg-brand-pearl/10"></div>
+			<svg class="text-brand-gold/50 w-2.5 h-2.5 flex-shrink-0" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+				<path d="M8 0 L9.5 6.5 L16 8 L9.5 9.5 L8 16 L6.5 9.5 L0 8 L6.5 6.5 Z"/>
+			</svg>
+			<div class="flex-1 h-px bg-brand-black/10 dark:bg-brand-pearl/10"></div>
+		</div>
+
+		<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 text-xs text-brand-black/40 dark:text-brand-pearl/40 tracking-wide">
+			<span>© 2025 Cofradía del Santo Sepulcro y Nuestra Señora de los Dolores</span>
+			<span>Motril · Granada</span>
 		</div>
 	</div>
 </footer>

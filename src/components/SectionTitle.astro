@@ -2,8 +2,16 @@
 const {title, class: astro_class = ''}  = Astro.props
 ---
 
-<h2
-	class={`text-2xl font-bold sm:text-5xl text-center text-brand-red font-roman py-12 ${astro_class} uppercase`}
->
-	<slot/>
-</h2>
+<div class={`flex flex-col items-center gap-3 py-10 ${astro_class}`}>
+	<div class="flex items-center gap-4 w-52">
+		<div class="flex-1 h-px bg-brand-gold/50 dark:bg-brand-gold/40"></div>
+		<svg class="text-brand-gold w-3 h-3 flex-shrink-0" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+			<path d="M8 0 L9.5 6.5 L16 8 L9.5 9.5 L8 16 L6.5 9.5 L0 8 L6.5 6.5 Z"/>
+		</svg>
+		<div class="flex-1 h-px bg-brand-gold/50 dark:bg-brand-gold/40"></div>
+	</div>
+	<h2 class={`text-2xl sm:text-4xl text-center text-brand-red font-roman uppercase tracking-cofrade leading-tight ${astro_class}`}>
+		<slot/>
+	</h2>
+	<div class="w-10 h-0.5 bg-brand-gold/60"></div>
+</div>

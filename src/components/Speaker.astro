@@ -1,25 +1,46 @@
 ---
 const {img, name, title, description} = Astro.props
 ---
-<article class='relative flex flex-col items-center justify-center w-full p-[1px] transition-all rounded-md bg-gradient-to-b from-brand-black/10 via-transparent to-transparent dark:from-brand-pearl/20 hover:via-brand-black/10 dark:hover:via-brand-pearl/10 group'>
-    <div class='bg-brand-pearl/80 dark:bg-brand-black/50 flex-1 group-hover:bg-brand-red/15 dark:group-hover:bg-brand-red/40 w-full px-6 py-10 rounded transition'>
-        <figure class='flex items-center justify-center'>
-            <picture>
-                <source srcset={`/img/speakers/${img}.webp`} type='image/webp' />
-                <img
-                    class='object-cover object-top w-40 h-40 transition bg-brand-pearl rounded-full group-hover:scale-110'
-                    src={`/img/speakers/${img}.jpg`}
-                    alt={`speaker: ${name}`}
-                />
-            </picture>
-        </figure>
-        <h3 class='mt-4 text-2xl font-bold text-center text-brand-black dark:text-brand-pearl'>
-            {name}
-        </h3>
-        <h4 class='text-sm text-center text-brand-black/60 dark:text-brand-pearl/70 italic mb-6'>{title}</h4>
-        {description.map((paragraph:string, i:any) => (
-            <p class='mt-4 text-lg text-left text-pretty max-w-[60ch] text-brand-black/80 dark:text-brand-pearl/90'>{paragraph}</p>
-        ))}
 
-    </div>
+<article class="group relative flex flex-col items-center w-full overflow-hidden border border-brand-black/10 dark:border-brand-pearl/10 hover:border-brand-gold/50 dark:hover:border-brand-gold/35 transition-all duration-400 bg-brand-pearl dark:bg-brand-black hover:shadow-lg">
+
+	<!-- Top gold accent line -->
+	<div class="w-full h-px bg-gradient-to-r from-transparent via-brand-gold/50 to-transparent"></div>
+
+	<div class="w-full px-8 py-10 flex flex-col items-center text-center">
+
+		<!-- Photo with gold ring -->
+		<figure class="relative mb-5">
+			<div class="absolute -inset-1 rounded-full bg-gradient-to-b from-brand-gold/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+			<picture>
+				<source srcset={`/img/speakers/${img}.webp`} type="image/webp" />
+				<img
+					class="relative object-cover object-top w-32 h-32 rounded-full border border-brand-gold/30 group-hover:border-brand-gold/70 transition-colors duration-400"
+					src={`/img/speakers/${img}.jpg`}
+					alt={`Ponente: ${name}`}
+				/>
+			</picture>
+		</figure>
+
+		<!-- Name -->
+		<h3 class="text-xl font-bold text-brand-black dark:text-brand-pearl font-garamond leading-tight">
+			{name}
+		</h3>
+
+		<!-- Role -->
+		<h4 class="text-sm text-brand-gold italic mt-1 tracking-wide">{title}</h4>
+
+		<!-- Thin gold divider -->
+		<div class="w-8 h-px bg-brand-gold/50 my-5"></div>
+
+		<!-- Bio -->
+		{description.map((paragraph: string) => (
+			<p class="text-base text-left text-brand-black/68 dark:text-brand-pearl/75 leading-7 [text-wrap:pretty] mt-3 first:mt-0">
+				{paragraph}
+			</p>
+		))}
+	</div>
+
+	<!-- Bottom hover accent -->
+	<div class="w-full h-px bg-gradient-to-r from-transparent via-brand-red/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400"></div>
 </article>
